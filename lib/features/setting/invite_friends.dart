@@ -177,14 +177,9 @@ enum _DownloadPlatform {
   final String label;
 
   String get url {
-    switch (this) {
-      case _DownloadPlatform.android:
-        return AppUrls.directDownloadAndroid;
-      case _DownloadPlatform.windows:
-        return AppUrls.directDownloadWindows;
-      case _DownloadPlatform.macos:
-        return AppUrls.directDownloadMac;
-    }
+    // Sukot installers live on the Sukot GitHub releases page — never point
+    // friends anywhere else.
+    return AppUrls.sukotReleases;
   }
 }
 

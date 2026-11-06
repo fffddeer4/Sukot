@@ -1,116 +1,49 @@
-# Sukot
-[![en](https://github.com/getlantern/.github/blob/main/resources/English.svg)](https://github.com/getlantern/.github/blob/main/profile/README.md)
-[![zh](https://github.com/getlantern/.github/blob/main/resources/Chinese.svg)](https://github.com/getlantern/.github/blob/main/profile/README.zh.md)
-[![ru](https://github.com/getlantern/.github/blob/main/resources/Russian.svg)](https://github.com/getlantern/.github/blob/main/profile/README.ru.md)
-[![ar](https://github.com/getlantern/.github/blob/main/resources/Arabic.svg)](https://github.com/getlantern/.github/blob/main/profile/README.ar.md)
-[![fa](https://github.com/getlantern/.github/blob/main/resources/Farsi.svg)](https://github.com/getlantern/.github/blob/main/profile/README.fa.md)
-[![my](https://github.com/getlantern/.github/blob/main/resources/Burmese.svg)](https://github.com/getlantern/.github/blob/main/profile/README.my.md)
----
-Censorship circumvention tool available for free download on any operating system
+# Sukot VPN
 
-![cover page](https://github.com/getlantern/.github/blob/main/resources/cover_page.png)
+[![en](https://img.shields.io/badge/lang-EN-blue)](README.md)
+[![fa](https://img.shields.io/badge/lang-FA-blue)](README.fa.md)
 
-## Downloads
-<table>
-    <tr>
-        <th></th>
-        <th>stable</th>
-        <th>app store</th>
-        <th>beta</th>
-    </tr>
-    <tr>
-        <th>Windows</th>
-        <td>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer.exe">Windows 10&#43;</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer.exe">Windows 10&#43;</a> <br>
-            <a href="https://github.com/getlantern/lantern-binaries/raw/main/lantern-installer-win7.exe">Windows 7</a>    
-        </td>
-        <td></td>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta.exe">Windows 10&#43;</a>
-        </td>
-    </tr>
-    <tr>
-        <th>Android</th>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer.apk">Android 6&#43;</a> <br>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer.apk">Android 6&#43;</a>
-        </td>
-        <td>
-            <a href="https://play.google.com/store/apps/details?id=org.getlantern.lantern">Android 6&#43;</a>
-        </td>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta.apk">Android 6&#43;</a>
-        </td>
-    </tr>
-    <tr>
-        <th>macOS</th>
-        <td>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer.dmg">macOS 10.15&#43;</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer.dmg">macOS 10.15&#43;</a>
-        </td>
-        <td></td>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta.dmg">macOS 10.15&#43;</a>
-        </td>
-    </tr>
-    <tr>
-        <th>iOS</th>
-        <td>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer.ipa">ipa</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer.ipa">ipa</a>
-        </td>
-        <td>
-            <a href="https://apps.apple.com/app/id1457872372?l">iOS 11&#43;</a>
-        </td>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta.ipa">ipa</a>
-        </td>
-    </tr>
-    <tr>
-        <th>Linux (amd64)</th>
-        <td>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer.deb">deb</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer.deb">deb</a> <br>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer.rpm">rpm</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer.rpm">rpm</a>
-        </td>
-        <td></td>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta.deb">deb</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta.rpm">rpm</a>
-        </td>
-    </tr>
-    <tr>
-        <th>Linux (arm64)</th>
-        <td>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer-arm64.deb">deb</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer-arm64.deb">deb</a> <br>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer-arm64.rpm">rpm</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer-arm64.rpm">rpm</a>
-        </td>
-        <td></td>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta-arm64.deb">deb</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta-arm64.rpm">rpm</a>
-        </td>
-    </tr>
-</table>
+**Sukot** is a fast, free and beautiful VPN built for one job: getting you an open internet with a single tap. No sign-up, no noise — just pick a location (or add your own config), press the power button, and you're in.
 
-- If the App Store is unavailable in your region, you may be able to follow [these steps](https://lantern.io/faq#use-2) to download Lantern.
-- For stable versions, multiple links exist for hosting redundancy and choice.
-- Try the early release &#34;beta&#34; version. While this may be unstable, feedback helps us improve. Join our [forums](#links) to contribute.
+![Sukot](assets/images/sukot_poster.jpg)
 
-## Links
-- [Website](https://lantern.io)
-- [Frequently Asked Questions](https://lantern.io/faq)
-- [wiki](https://github.com/getlantern/guide/wiki)
-- GitHub Discussions | [اَلْعَرَبِيَّةُ](https://github.com/getlantern/lantern-forum-uae/discussions) | [беларуская](https://github.com/getlantern/lantern-forum-belarus) | [English](https://github.com/getlantern/lantern-forum-en/discussions) | [فارسی](https://github.com/getlantern/lantern-forum-fa/discussions) | [русский](https://github.com/getlantern/lantern-forum-ru/discussions) | [українська](https://github.com/getlantern/lantern-forum-ukraine/discussions) | [中文](https://github.com/getlantern/lantern-forum-cn/discussions)
-- Instagram | [English](https://www.instagram.com/getlantern/) | [فارسی](https://www.instagram.com/getlantern_fa/)
-- Telegram | [@lantern_official_bot](https://t.me/lantern_official_bot) | [فارسی](https://t.me/LanternFarsi) | [русский](https://t.me/lantern_russia) | [中文](https://t.me/lantern_china)
-- Telegram (beta testers) | [فارسی](https://t.me/lanternbetaIR) | [русский](https://t.me/&#43;pLVA7H6MU_Y2N2Vi) | [中文](https://t.me/&#43;n3SfwL0Ho7w1ODgz)
-- Twitter | [English](https://twitter.com/getlantern) | [فارسی](https://twitter.com/getlantern_fa) | [中文](https://twitter.com/getlantern_CN)
+## ✨ What's inside
 
-## Release Notes
+- **One-tap connect** — a big glowing power button with a live session timer and connection state.
+- **Server list with real pings** — every location shows its actual latency, and the fastest option is always one tap away.
+- **➕ Add Config (V2Ray-style)** — paste `vmess://`, `vless://`, `trojan://`, `ss://` or `hysteria2://` links (or scan a QR code) and they appear in your server list, ready to connect. Powered by the sing-box engine.
+- **Branded experience** — deep-blue guardian artwork on the launch screen, loader and notifications; the status bar always says **Sukot VPN**.
+- **Split tunneling & smart routing** — choose which apps ride the tunnel.
+- **Windows build** — the same app on your desktop.
+- **Persian-first UI** — fully localized, RTL-friendly.
 
-- https://github.com/getlantern/lantern/releases
+## 📥 Downloads
+
+Grab the latest build from the [**Releases page**](https://github.com/fffddeer4/Sukot/releases):
+
+| File | For |
+| --- | --- |
+| `Sukot-Samsung.apk` | Samsung devices (arm64-v8a) |
+| `Sukot-Xiaomi.apk` | Xiaomi / Redmi devices (arm64-v8a + armeabi-v7a) |
+| `Sukot-Windows-x64.zip` | Windows 10/11 (x64) — unzip and run `lantern.exe` |
+
+> **Install tip:** uninstall any previous version first (Android blocks downgrades and some signature changes), then allow "install from unknown sources" when prompted.
+
+## ➕ Connecting your own config
+
+1. On the home screen tap the **+** button.
+2. Paste one or more config links (`vmess://…`, `vless://…`, `trojan://…`, `ss://…`, `hysteria2://…`) — or scan a QR code.
+3. Tap **Add**. Your configs land in the server list under *Your servers*.
+4. Select one and press the power button. Done.
+
+## 💬 Community
+
+Questions, feedback or new configs? Join the official channel: **[t.me/SUKOT1344](https://t.me/SUKOT1344)**
+
+## 🔒 Privacy
+
+Sukot does not ask you to create an account and does not show sign-in screens. Connection logs are only shared if *you* choose to send them to the team.
+
+## ⚖️ License
+
+Licensed under the [GNU GPL v3](LICENSE). Sukot builds on top of open-source anti-censorship technology — thank you to every project that made this possible.

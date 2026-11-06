@@ -1372,7 +1372,10 @@ msgid "github_download_page"
 msgstr "GitHub Download Page"
 
 msgid "telegram_bot"
-msgstr "Telegram Bot"
+msgstr "Telegram Channel"
+
+msgid "telegram_channel"
+msgstr "Telegram Channel"
 
 msgid "if_you_cannot_access_website"
 msgstr "If you encounter any issues accessing our website, you can download Sukot from the links above."
@@ -1954,7 +1957,7 @@ msgid "share_logs_warning_title"
 msgstr "Share diagnostic logs?"
 
 msgid "share_logs_warning_body"
-msgstr "These logs may include your email, IP address, device identifiers, and the Sukot servers you connected to. They are not protected once they leave the app, so anyone who receives them can read them. Only send them to Sukot support at support@lantern.io."
+msgstr "These logs may include your email, IP address, device identifiers, and the Sukot servers you connected to. They are not protected once they leave the app, so anyone who receives them can read them. Only send them to the Sukot team through the official Telegram channel: t.me/SUKOT1344."
 
 msgid "share_logs_anyway"
 msgstr "Share Logs"

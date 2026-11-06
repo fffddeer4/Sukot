@@ -522,6 +522,72 @@ mixin ServerConnectFlow<T extends ConsumerStatefulWidget> on ConsumerState<T> {
       },
     );
   }
+
+  /// Connect flow for user-imported configs (the ➕ Add Config feature).
+  /// Mirrors [onPrivateServerSelected] so a config added on the lobby
+  /// connects exactly like one added anywhere else: loading gate, conflict
+  /// dialog, success snackbar, location bookkeeping, back to root.
+  Future<void> onUserServerSelected(Server server) async {
+    context.showLoadingDialog();
+
+    final result = await ref
+        .read(vpnProvider.notifier)
+        .connectToServer(ServerLocationType.privateServer, server.tag);
+
+    result.fold(
+      (failure) {
+        context.hideLoadingDialog();
+        if (failure is VpnConflictFailure) {
+          AppDialog.vpnConflictDialog(
+            context: context,
+            onConnectAnyway: () async {
+              appRouter.maybePop();
+              final retryResult = await ref
+                  .read(vpnProvider.notifier)
+                  .connectToServer(
+                    ServerLocationType.privateServer,
+                    server.tag,
+                    skipConflictCheck: true,
+                  );
+              retryResult.fold(
+                (f) {
+                  context.hideLoadingDialog();
+                  context.showSnackBar(f.localizedErrorMessage);
+                },
+                (_) {
+                  context.hideLoadingDialog();
+                  _completeUserServerConnection(server);
+                },
+              );
+            },
+          );
+        } else {
+          context.showSnackBar(failure.localizedErrorMessage);
+        }
+      },
+      (_) {
+        context.hideLoadingDialog();
+        _completeUserServerConnection(server);
+      },
+    );
+  }
+
+  void _completeUserServerConnection(Server server) {
+    context.showSnackBar('connected_to_private_server'.i18n);
+    ref
+        .read(serverLocationProvider.notifier)
+        .updateServerLocation(
+          ServerLocation(
+            serverType: ServerLocationType.privateServer.name,
+            serverName: server.tag,
+            country: server.location.country,
+            city: server.location.city,
+            countryCode: server.location.countryCode,
+            protocol: server.type,
+          ),
+        );
+    appRouter.popUntilRoot();
+  }
 }
 
 class _CountryCityListView extends StatefulWidget {
@@ -898,7 +964,8 @@ class _ServerLocationsInlineListState
     return availableServers.when(
       data: (data) {
         final allLocations = data.lanternServerLocations;
-        if (allLocations.isEmpty) {
+        final userServers = data.userServers;
+        if (allLocations.isEmpty && userServers.isEmpty) {
           return const SizedBox.shrink();
         }
 
@@ -928,10 +995,40 @@ class _ServerLocationsInlineListState
         }).toList();
 
         final children = <Widget>[];
-        for (var i = 0; i < tiles.length; i++) {
-          children.add(tiles[i]);
-          if (i < tiles.length - 1) {
+        // User-imported configs first — configs added through the ➕ button
+        // are the user's own servers and deserve the top spot on the lobby.
+        if (userServers.isNotEmpty) {
+          children.add(
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
+              child: HeaderText('your_server'.i18n),
+            ),
+          );
+          for (var i = 0; i < userServers.length; i++) {
+            final server = userServers[i];
+            children.add(_UserServerTile(
+              key: ValueKey('user.${server.tag}'),
+              server: server,
+              isSelected: selectedTag == server.tag,
+              onSelected: onUserServerSelected,
+            ));
             children.add(const DividerSpace());
+          }
+        }
+        if (tiles.isNotEmpty) {
+          if (userServers.isNotEmpty) {
+            children.add(
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
+                child: HeaderText('lantern_servers'.i18n),
+              ),
+            );
+          }
+          for (var i = 0; i < tiles.length; i++) {
+            children.add(tiles[i]);
+            if (i < tiles.length - 1) {
+              children.add(const DividerSpace());
+            }
           }
         }
 
@@ -955,6 +1052,49 @@ class _ServerLocationsInlineListState
               ),
         ),
       ),
+    );
+  }
+}
+
+/// A single user-imported config row for the inline lobby list. Same visual
+/// language as the private-server list: flag, tag as label, city/protocol
+/// subtitle, and a checkmark when this config is the active connection.
+class _UserServerTile extends StatelessWidget {
+  final Server server;
+  final bool isSelected;
+  final ValueChanged<Server> onSelected;
+
+  const _UserServerTile({
+    super.key,
+    required this.server,
+    required this.isSelected,
+    required this.onSelected,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    return AppTile(
+      tileKey: Key('server_selection.user_server.${server.tag}'),
+      onPressed: () => onSelected(server),
+      selected: isSelected,
+      icon: Flag(
+        countryCode: server.location.countryCode,
+        size: const Size(40, 28),
+      ),
+      label: server.tag,
+      subtitle: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 3),
+        child: Text(
+          '${server.location.city} - ${server.type}',
+          style: textTheme.labelMedium!.copyWith(
+            color: context.textTertiary,
+          ),
+        ),
+      ),
+      trailing: isSelected
+          ? const Icon(Icons.check_circle, color: AppColors.blue6)
+          : null,
     );
   }
 }

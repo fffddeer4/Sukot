@@ -1474,7 +1474,10 @@ msgid "github_download_page"
 msgstr "صفحه دانلود GitHub"
 
 msgid "telegram_bot"
-msgstr "ربات تلگرام"
+msgstr "کانال تلگرام"
+
+msgid "telegram_channel"
+msgstr "کانال تلگرام"
 
 msgid "if_you_cannot_access_website"
 msgstr ""

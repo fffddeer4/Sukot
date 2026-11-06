@@ -136,7 +136,7 @@ class _InnerWebViewState extends ConsumerState<_InnerWebView> {
     mediaPlaybackRequiresUserGesture: false,
     useOnDownloadStart: true,
     useOnLoadResource: true,
-    applicationNameForUserAgent: 'Lantern',
+    applicationNameForUserAgent: 'Sukot',
     hardwareAcceleration: true,
     // userAgent: _getUserAgent(),
     supportZoom: true,

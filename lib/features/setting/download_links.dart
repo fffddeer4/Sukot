@@ -40,7 +40,7 @@ class DownloadLinks extends StatelessWidget {
             trailing: AppImage(path: AppImagePaths.outsideBrowser),
             label: 'lantern_io'.i18n,
             onPressed: () {
-              UrlUtils.openUrl(AppUrls.lanternOfficial);
+              UrlUtils.openUrl(AppUrls.sukotReleases);
             },
           ),
         ),
@@ -59,15 +59,15 @@ class DownloadLinks extends StatelessWidget {
           child: Column(
             children: [
               AppTile.link(
-                url: AppUrls.lanternGithub,
+                url: AppUrls.sukotGithub,
                 icon: AppImagePaths.github,
                 label: 'github_download_page'.i18n,
               ),
               DividerSpace(),
               AppTile.link(
-                url: AppUrls.telegramBot,
+                url: AppUrls.telegramChannel,
                 icon: AppImagePaths.telegram,
-                label: 'telegram_bot'.i18n,
+                label: 'telegram_channel'.i18n,
               ),
             ],
           ),
@@ -134,21 +134,22 @@ class DownloadLinks extends StatelessWidget {
   }
 
   void onPlatformTap(_PlatformType platformType) {
+    // Sukot ships every platform from its own GitHub releases page.
     switch (platformType) {
       case _PlatformType.android:
-        UrlUtils.openUrl(AppUrls.downloadAndroid);
+        UrlUtils.openUrl(AppUrls.sukotReleases);
         break;
       case _PlatformType.ios:
-        UrlUtils.openUrl(AppUrls.downloadIos);
+        UrlUtils.openUrl(AppUrls.sukotReleases);
         break;
       case _PlatformType.windows:
-        UrlUtils.openUrl(AppUrls.downloadWindows);
+        UrlUtils.openUrl(AppUrls.sukotReleases);
         break;
       case _PlatformType.macos:
-        UrlUtils.openUrl(AppUrls.downloadMac);
+        UrlUtils.openUrl(AppUrls.sukotReleases);
         break;
       case _PlatformType.linux:
-        UrlUtils.openUrl(AppUrls.downloadLinux);
+        UrlUtils.openUrl(AppUrls.sukotReleases);
         break;
     }
   }

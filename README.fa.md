@@ -1,116 +1,49 @@
-# لنترن
-[![en](https://github.com/getlantern/.github/blob/main/resources/English.svg)](https://github.com/getlantern/.github/blob/main/profile/README.md)
-[![zh](https://github.com/getlantern/.github/blob/main/resources/Chinese.svg)](https://github.com/getlantern/.github/blob/main/profile/README.zh.md)
-[![ru](https://github.com/getlantern/.github/blob/main/resources/Russian.svg)](https://github.com/getlantern/.github/blob/main/profile/README.ru.md)
-[![ar](https://github.com/getlantern/.github/blob/main/resources/Arabic.svg)](https://github.com/getlantern/.github/blob/main/profile/README.ar.md)
-[![fa](https://github.com/getlantern/.github/blob/main/resources/Farsi.svg)](https://github.com/getlantern/.github/blob/main/profile/README.fa.md)
-[![my](https://github.com/getlantern/.github/blob/main/resources/Burmese.svg)](https://github.com/getlantern/.github/blob/main/profile/README.my.md)
----
-ابزار دور زدن سانسور برای دانلود رایگان در هر سیستم عاملی در دسترس است
+# فیلترشکن سوکوت (Sukot VPN)
 
-![cover page](https://github.com/getlantern/.github/blob/main/resources/cover_page.png)
+[![en](https://img.shields.io/badge/lang-EN-blue)](README.md)
+[![fa](https://img.shields.io/badge/lang-FA-blue)](README.fa.md)
 
-## دانلودها
-<table>
-    <tr>
-        <th></th>
-        <th>پایدار</th>
-        <th>اپ استور</th>
-        <th>بتا</th>
-    </tr>
-    <tr>
-        <th>ویندوز</th>
-        <td>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer.exe">Windows 10&#43;</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer.exe">Windows 10&#43;</a> <br>
-            <a href="https://github.com/getlantern/lantern-binaries/raw/main/lantern-installer-win7.exe">Windows 7</a>    
-        </td>
-        <td></td>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta.exe">Windows 10&#43;</a>
-        </td>
-    </tr>
-    <tr>
-        <th>اندروید</th>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer.apk">Android 6&#43;</a> <br>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer.apk">Android 6&#43;</a>
-        </td>
-        <td>
-            <a href="https://play.google.com/store/apps/details?id=org.getlantern.lantern">Android 6&#43;</a>
-        </td>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta.apk">Android 6&#43;</a>
-        </td>
-    </tr>
-    <tr>
-        <th>macOS</th>
-        <td>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer.dmg">macOS 10.15&#43;</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer.dmg">macOS 10.15&#43;</a>
-        </td>
-        <td></td>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta.dmg">macOS 10.15&#43;</a>
-        </td>
-    </tr>
-    <tr>
-        <th>iOS</th>
-        <td>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer.ipa">ipa</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer.ipa">ipa</a>
-        </td>
-        <td>
-            <a href="https://apps.apple.com/app/id1457872372?l">iOS 11&#43;</a>
-        </td>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta.ipa">ipa</a>
-        </td>
-    </tr>
-    <tr>
-        <th>Linux (amd64)</th>
-        <td>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer.deb">deb</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer.deb">deb</a> <br>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer.rpm">rpm</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer.rpm">rpm</a>
-        </td>
-        <td></td>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta.deb">deb</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta.rpm">rpm</a>
-        </td>
-    </tr>
-    <tr>
-        <th>Linux (arm64)</th>
-        <td>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer-arm64.deb">deb</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer-arm64.deb">deb</a> <br>
-            <a href="https://github.com/getlantern/lantern/releases/latest/download/lantern-installer-arm64.rpm">rpm</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/production/latest/lantern-installer-arm64.rpm">rpm</a>
-        </td>
-        <td></td>
-        <td>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta-arm64.deb">deb</a> <br>
-            <a href="https://s3.amazonaws.com/lantern.io/releases/beta/latest/lantern-installer-beta-arm64.rpm">rpm</a>
-        </td>
-    </tr>
-</table>
+**سوکوت** یک فیلترشکن سریع، رایگان و خوشگله که فقط یه کار رو عالی انجام میده: با یه ضربه، اینترنت آزاد رو برمی‌گردونه. نه ثبت‌نام می‌خواد، نه پیچیدگی — یه لوکیشن انتخاب کن (یا کانفیگ خودت رو اضافه کن)، دکمه پاور رو بزن و وصل شو.
 
-- اگر فروشگاه اپ در منطقه شما در دسترس نیست، شاید بتوانید با دنبال کردن [این مراحل](https://lantern.io/faq#use-2)، لنترن را دانلود کنید.
-- برای نسخه‌های پایدار، لینک‌های متعددی برای اطمینان از دسترسی و انتخاب وجود دارد.
-- نسخه آزمایشی &#34;بتا&#34; را امتحان کنید. اگرچه این نسخه ممکن است ناپایدار باشد، بازخوردها به بهبود آن کمک می‌کنند. برای مشارکت، به [forums](#links) ما بپیوندید.
+![Sukot](assets/images/sukot_poster.jpg)
 
-## لینک‌ها
-- [وب‌سایت](https://lantern.io)
-- [سوالات متداول](https://lantern.io/faq)
-- [wiki](https://github.com/getlantern/guide/wiki)
-- گفتگوهای گیت‌هاب | [اَلْعَرَبِيَّةُ](https://github.com/getlantern/lantern-forum-uae/discussions) | [беларуская](https://github.com/getlantern/lantern-forum-belarus) | [English](https://github.com/getlantern/lantern-forum-en/discussions) | [فارسی](https://github.com/getlantern/lantern-forum-fa/discussions) | [русский](https://github.com/getlantern/lantern-forum-ru/discussions) | [українська](https://github.com/getlantern/lantern-forum-ukraine/discussions) | [中文](https://github.com/getlantern/lantern-forum-cn/discussions)
-- اینستاگرام | [English](https://www.instagram.com/getlantern/) | [فارسی](https://www.instagram.com/getlantern_fa/)
-- تلگرام | [@lantern_official_bot](https://t.me/lantern_official_bot) | [فارسی](https://t.me/LanternFarsi) | [русский](https://t.me/lantern_russia) | [中文](https://t.me/lantern_china)
-- تلگرام (بتا تسترها) | [فارسی](https://t.me/lanternbetaIR) | [русский](https://t.me/&#43;pLVA7H6MU_Y2N2Vi) | [中文](https://t.me/&#43;n3SfwL0Ho7w1ODgz)
-- توییتر | [English](https://twitter.com/getlantern) | [فارسی](https://twitter.com/getlantern_fa) | [中文](https://twitter.com/getlantern_CN)
+## ✨ امکانات
 
-## Release Notes
+- **اتصال با یه ضربه** — دکمه پاور بزرگ و درخشان با تایمر لحظه اتصال و نمایش وضعیت.
+- **لیست سرور با پینگ واقعی** — هر لوکیشن تأخیر واقعی خودش رو نشون میده و سریع‌ترین سرور همیشه یه لمس با تو فاصله داره.
+- **➕ افزودن کانفیگ (مثل V2Ray)** — لینک‌های `vmess://`، `vless://`، `trojan://`، `ss://` و `hysteria2://` رو وارد کن (یا QR اسکن کن) تا کانفیگ‌هات به لیست سرورها اضافه بشن و راحت وصل شی. موتور اتصال sing-box هست.
+- **ظاهر اختصاصی** — طراحی سرمه‌ای-آبی با نگهبان نقاب‌دار توی صفحه لودینگ، لودر داخل برنامه و اعلان‌ها؛ همیشه توی نوار وضعیت می‌نویسه **Sukot VPN**.
+- **تونل‌سازی تفکیکی و مسیریابی هوشمند** — خودت تعیین می‌کنی کدوم برنامه‌ها از تونل رد بشن.
+- **نسخه ویندوز** — همون برنامه، این بار روی کامپیوترت.
+- **فارسی‌محور** — رابط کاربری کاملاً فارسی و راست‌به‌چپ.
 
-- https://github.com/getlantern/lantern/releases
+## 📥 دانلود
+
+آخرین نسخه رو از صفحه [**Releases**](https://github.com/fffddeer4/Sukot/releases) بگیر:
+
+| فایل | مخصوص |
+| --- | --- |
+| `Sukot-Samsung.apk` | گوشی‌های سامسونگ (arm64-v8a) |
+| `Sukot-Xiaomi.apk` | شیامی / ردمی (arm64-v8a + armeabi-v7a) |
+| `Sukot-Windows-x64.zip` | ویندوز ۱۰/۱۱ (x64) — بازش کن و `lantern.exe` رو اجرا کن |
+
+> **نکته نصب:** اول نسخه قبلی رو Uninstall کن (اندروید جلوی نصب روی نسخه امضای متفاوت رو می‌گیره)، بعد موقع نصب گزینه «نصب از منابع ناشناس» رو تأیید کن.
+
+## ➕ اتصال کانفیگ دلخواه
+
+1. توی صفحه اصلی، دکمه **+** رو بزن.
+2. یک یا چند لینک کانفیگ رو Paste کن (`vmess://…`، `vless://…`، `trojan://…`، `ss://…`، `hysteria2://…`) — یا QR رو اسکن کن.
+3. دکمه **افزودن** رو بزن. کانفیگ‌هات زیر بخش *سرورهای شما* توی لیست سرورها ظاهر میشن.
+4. یکی رو انتخاب کن و دکمه پاور رو بزن. تمام!
+
+## 💬 کانال ما
+
+سؤال، نظر یا کانفیگ جدید داری؟ بیا توی کانال رسمی: **[t.me/SUKOT1344](https://t.me/SUKOT1344)**
+
+## 🔒 حریم خصوصی
+
+سوکوت ثبت‌نام نمی‌خواد و صفحه ورود نداره. لاگ‌های اتصال هم فقط وقتی ارسال میشن که خودت بخوای برای تیم بفرستی.
+
+## ⚖️ مجوز
+
+این پروژه تحت مجوز [GNU GPL v3](LICENSE) منتشر شده. سوکوت روی دوش فناوری‌های متن‌باز ضدسانسور ساخته شده — از تک‌تک اون پروژه‌ها ممنونیم.
