@@ -59,20 +59,30 @@ class _AddConfigSheetState extends ConsumerState<AddConfigSheet> {
     }
 
     Future<void> submit() async {
-      // The core API takes a comma-separated URL list; normalize any
-      // whitespace/newline input into that form and drop empties.
-      final urls = linksController.text
-          .split(RegExp(r'[\s,]+'))
-          .map((e) => e.trim())
-          .where((e) => e.isNotEmpty)
-          .toSet()
-          .join(',');
+      // Normalize the input (strip invisible keyboard characters, Persian
+      // digits, quotes/bullets, whitespace) into a comma-separated URL list.
+      final urls = UrlUtils.cleanConfigLinks(linksController.text);
       if (urls.isEmpty) return;
+
+      // Drop anything that is not a recognizable config link; only complain
+      // when nothing usable remains.
+      final validLinks = urls
+          .split(',')
+          .where((u) => u.isNotEmpty && UrlUtils.isConfigLink(u))
+          .toList();
+      if (validLinks.isEmpty) {
+        AppDialog.errorDialog(
+          context: context,
+          title: 'error'.i18n,
+          content: 'invalid_config_link'.i18n,
+        );
+        return;
+      }
 
       context.showLoadingDialog();
       final result = await ref
           .read(privateServerProvider.notifier)
-          .addServerBasedOnURLs(urls, true);
+          .addServerBasedOnURLs(validLinks.join(','), true);
       result.fold(
         (error) {
           appLogger.error("Failed to add config: $error");

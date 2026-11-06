@@ -25,6 +25,16 @@ replace github.com/tetratelabs/wazero => github.com/getlantern/wazero v1.11.0-wa
 
 replace github.com/refraction-networking/water => github.com/getlantern/water v0.7.1-alpha.0.20260309190745-bd547c14b4aa
 
+// Vendored pluriconfig (third_party/pluriconfig): fixes WebSocket config
+// parsing so that:
+//  - "path=/x?ed=2048&proxyip=..." configs save instead of erroring out
+//    (the ed value was parsed with ParseUint over everything after "?ed=",
+//    including "&proxyip=..."), and
+//  - the WS path is sent verbatim (Xray-compatible) instead of being stripped
+//    of "?ed=...", which broke Cloudflare-Workers servers that read
+//    proxyip/ed from the path and silently dropped early data.
+replace github.com/getlantern/pluriconfig => ./third_party/pluriconfig
+
 // replace github.com/quic-go/qpack => github.com/quic-go/qpack v0.5.1
 
 require (

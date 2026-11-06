@@ -235,31 +235,103 @@ class _JoinPrivateServerState extends ConsumerState<JoinPrivateServer> {
     );
   }
 
-  Future<void> onJoinServer(String urls, String serverName) async {
+  Future<void> onJoinServer(String rawInput, String serverName) async {
+    final input = rawInput.trim();
+    if (input.isEmpty) {
+      appLogger.error("Join server input is empty");
+      return;
+    }
     context.showLoadingDialog();
-    final result = await ref
-        .read(privateServerProvider.notifier)
-        .addServerBasedOnURLs(urls, true);
-    result.fold(
-      (error) {
-        appLogger.error("Failed to join private server: $error");
-        context.hideLoadingDialog();
-        AppDialog.errorDialog(
-          context: context,
-          title: 'error'.i18n,
-          content: error.localizedErrorMessage,
-        );
-      },
-      (success) {
-        unawaited(
-          ref
-              .read(availableServersProvider.notifier)
-              .forceFetchAvailableServers(),
-        );
-        context.hideLoadingDialog();
-        appLogger.info("Successfully started joining private server.");
-      },
+
+    // 1) Proxy config links (vless://, vmess://, ss://, trojan://, ...) go
+    // straight to the core URL importer — the same path as the ➕ button.
+    if (UrlUtils.containsConfigLink(input)) {
+      final urls = UrlUtils.cleanConfigLinks(input);
+      final result = await ref
+          .read(privateServerProvider.notifier)
+          .addServerBasedOnURLs(urls, true);
+      result.fold(
+        (error) {
+          appLogger.error("Failed to join private server: $error");
+          context.hideLoadingDialog();
+          AppDialog.errorDialog(
+            context: context,
+            title: 'error'.i18n,
+            content: error.localizedErrorMessage,
+          );
+        },
+        (success) {
+          unawaited(
+            ref
+                .read(availableServersProvider.notifier)
+                .forceFetchAvailableServers(),
+          );
+          context.hideLoadingDialog();
+          appLogger.info("Successfully joined server via config link.");
+        },
+      );
+      return;
+    }
+
+    // 2) Private-server invite links — either pasted directly or embedded in
+    // the shared "join my private server" message text.
+    final invite = _extractInviteParams(input);
+    if (invite != null) {
+      final result = await ref
+          .read(privateServerProvider.notifier)
+          .addServerManually(
+              invite.$1, invite.$2, invite.$3, serverName);
+      result.fold(
+        (failure) {
+          appLogger.error("Failed to join private server: ${failure.error}");
+          context.hideLoadingDialog();
+          AppDialog.errorDialog(
+            context: context,
+            title: 'error'.i18n,
+            content: failure.localizedErrorMessage,
+          );
+        },
+        (_) {
+          unawaited(
+            ref
+                .read(availableServersProvider.notifier)
+                .forceFetchAvailableServers(),
+          );
+          context.hideLoadingDialog();
+          appLogger.info("Successfully joined private server via invite link.");
+        },
+      );
+      return;
+    }
+
+    // 3) Nothing recognizable — tell the user instead of sending junk to the
+    // core and showing a cryptic error.
+    context.hideLoadingDialog();
+    AppDialog.errorDialog(
+      context: context,
+      title: 'error'.i18n,
+      content: 'invalid_server_key'.i18n,
     );
+  }
+
+  /// Extracts (ip, port, token) from a private-server invite URL, either the
+  /// bare URL or embedded inside shared message text.
+  (String, String, String)? _extractInviteParams(String input) {
+    final match =
+        RegExp(r'https?://\S+').firstMatch(input)?.group(0) ?? input;
+    try {
+      final uri = Uri.parse(match);
+      final params = uri.queryParameters;
+      final ip = params['ip'] ?? '';
+      final port = params['port'] ?? '';
+      final token = params['token'] ?? '';
+      if (ip.isNotEmpty && port.isNotEmpty && token.isNotEmpty) {
+        return (ip, port, token);
+      }
+    } catch (e) {
+      appLogger.error("Failed to parse invite URL: $e");
+    }
+    return null;
   }
 
   void showSuccessDialog(String name) {

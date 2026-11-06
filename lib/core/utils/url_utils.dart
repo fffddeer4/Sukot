@@ -195,4 +195,103 @@ class UrlUtils {
         ? "${parts[parts.length - 2]}.${parts.last}"
         : uri.host;
   }
+
+  // ---------------------------------------------------------------------------
+  // Proxy config links (V2Ray-style share links)
+  // ---------------------------------------------------------------------------
+
+  /// Share-link schemes the core can import as proxy servers (vless://,
+  /// vmess://, ss://, trojan://, hysteria2://, tuic://, ...). http/https are
+  /// deliberately absent: those are web pages, not proxy configs (the
+  /// private-server invite link is handled separately by ip/port/token).
+  static const Set<String> configLinkSchemes = {
+    'vless',
+    'vmess',
+    'ss',
+    'ssr',
+    'trojan',
+    'hysteria',
+    'hysteria2',
+    'hy2',
+    'tuic',
+    'juicity',
+    'anytls',
+    'snell',
+    'naive',
+    'ssh',
+    'wireguard',
+    'wg',
+    'socks',
+    'socks4',
+    'socks5',
+    'socks5h',
+  };
+
+  /// Invisible/format characters (zero-width space, ZWNJ/ZWJ, direction
+  /// marks, BOM, word-joiner, soft hyphen) that mobile keyboards — Persian
+  /// ones in particular — can inject while typing, silently corrupting a
+  /// pasted or typed config link.
+  static const List<String> _invisibleChars = [
+    '\u200B',
+    '\u200C',
+    '\u200D',
+    '\u200E',
+    '\u200F',
+    '\u2060',
+    '\u2066',
+    '\u2067',
+    '\u2068',
+    '\u2069',
+    '\uFEFF',
+    '\u00AD',
+  ];
+
+  /// Cleans typed or pasted config-link text before handing it to the core:
+  /// strips invisible characters, converts Persian/Arabic-Indic digits to
+  /// ASCII, removes clipboard decoration (quotes, list bullets), splits on
+  /// whitespace/commas/newlines and drops empties. Returns a comma-separated
+  /// list in the exact shape `AddServersByURL` expects.
+  static String cleanConfigLinks(String raw) {
+    var text = raw;
+    for (final ch in _invisibleChars) {
+      text = text.replaceAll(ch, '');
+    }
+    const persianDigits = '۰۱۲۳۴۵۶۷۸۹';
+    const arabicDigits = '٠١٢٣٤٥٦٧٨٩';
+    for (var i = 0; i < 10; i++) {
+      text = text
+          .replaceAll(persianDigits[i], '$i')
+          .replaceAll(arabicDigits[i], '$i');
+    }
+    final quoteStrip = RegExp("^['\"“”«»]+|['\"“”«»]+\$");
+    final links = text
+        .split(RegExp(r'[\s,،]+'))
+        .map((e) => e
+            .trim()
+            .replaceAll(RegExp(r'^[-•*·>»]+'), '')
+            .replaceAll(quoteStrip, '')
+            .trim())
+        .where((e) => e.isNotEmpty)
+        .toSet();
+    return links.join(',');
+  }
+
+  /// First line of [raw] that starts a known proxy scheme, or ''.
+  static String firstConfigLink(String raw) {
+    for (final link in cleanConfigLinks(raw).split(',')) {
+      if (isConfigLink(link)) return link;
+    }
+    return '';
+  }
+
+  /// True when [link] starts with one of [configLinkSchemes].
+  static bool isConfigLink(String link) {
+    final match = RegExp(r'^([a-zA-Z][a-zA-Z0-9+.\-]*)://').firstMatch(link);
+    if (match == null) return false;
+    return configLinkSchemes.contains(match.group(1)!.toLowerCase());
+  }
+
+  /// True when [raw] contains at least one known proxy config link.
+  static bool containsConfigLink(String raw) =>
+      firstConfigLink(raw).isNotEmpty;
 }

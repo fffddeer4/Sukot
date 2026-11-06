@@ -1086,7 +1086,9 @@ class _UserServerTile extends StatelessWidget {
       subtitle: Padding(
         padding: const EdgeInsets.symmetric(vertical: 3),
         child: Text(
-          '${server.location.city} - ${server.type}',
+          // Imported configs have no geo-located city — show the server
+          // host instead so the row isn't just a dangling protocol type.
+          '${server.location.city.isEmpty ? server.serverIP : server.location.city} - ${server.type}',
           style: textTheme.labelMedium!.copyWith(
             color: context.textTertiary,
           ),
@@ -1094,7 +1096,16 @@ class _UserServerTile extends StatelessWidget {
       ),
       trailing: isSelected
           ? const Icon(Icons.check_circle, color: AppColors.blue6)
-          : null,
+          : // Real probe latency for imported configs too — the core probes
+            // every server once the tunnel is up, not just Lantern ones.
+            pingChipFor(
+              context: context,
+              lastSuccessDelayMs:
+                  server.selectionHistory?.lastSuccessDelayMs ?? 0,
+              isProbedUnreachable: server.hasFailedProbeEvidence &&
+                  !server.hasSuccessfulProbe,
+              isAwaitingProbe: false,
+            ),
     );
   }
 }

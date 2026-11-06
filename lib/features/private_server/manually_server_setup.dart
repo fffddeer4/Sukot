@@ -167,21 +167,59 @@ class _ManuallyServerSetupState extends ConsumerState<ManuallyServerSetup> {
       appLogger.error("Scanner value is empty");
       return;
     }
-    final url = Uri.parse(scannerValue);
-    appLogger.info("Verifying server with URL: $url");
-    final data = url.queryParameters;
+    final input = scannerValue.trim();
+
+    // Proxy config links (vless://, vmess://, ss://, trojan://, ...) are not
+    // ip/port/token keys — route them to the core URL importer so manual
+    // entry and QR scanning behave identically to the ➕ button.
+    if (UrlUtils.containsConfigLink(input)) {
+      final urls = UrlUtils.cleanConfigLinks(input);
+      appLogger.info("Access key field contains config link, importing: $urls");
+      context.showLoadingDialog();
+      final result = await ref
+          .read(privateServerProvider.notifier)
+          .addServerBasedOnURLs(urls, true);
+      result.fold(
+        (failure) {
+          appLogger.error("Failed to add config: ${failure.error}");
+          context.hideLoadingDialog();
+          context.showSnackBar(failure.localizedErrorMessage);
+        },
+        (tags) {
+          appLogger.info("Config added, servers: $tags");
+          ref
+              .read(availableServersProvider.notifier)
+              .forceFetchAvailableServers();
+          context.hideLoadingDialog();
+          showSuccessDialog();
+        },
+      );
+      return;
+    }
+
+    // Private-server invite URL (possibly embedded in shared message text).
+    final inviteSource =
+        RegExp(r'https?://\S+').firstMatch(input)?.group(0) ?? input;
+    final url = Uri.tryParse(inviteSource);
+    final data = url?.queryParameters ?? const <String, String>{};
     final ip = data['ip'] ?? '';
     final port = data['port'] ?? '';
     final accessKey = data['token'] ?? '';
 
+    if (ip.isEmpty || port.isEmpty || accessKey.isEmpty) {
+      appLogger.error("Input is neither a config link nor an invite URL");
+      context.showSnackBar('invalid_server_key'.i18n);
+      return;
+    }
+
+    appLogger.info("Verifying server with URL: $url");
     context.showLoadingDialog();
     final result = await ref
         .read(privateServerProvider.notifier)
         .addServerManually(ip, port, accessKey, tag);
     result.fold(
       (failure) {
-        appLogger
-            .error("Failed to add server: ${failure.error}");
+        appLogger.error("Failed to add server: ${failure.error}");
         context.hideLoadingDialog();
         context.showSnackBar(failure.localizedErrorMessage);
       },

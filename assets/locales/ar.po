@@ -2176,3 +2176,9 @@ msgstr "تمت إضافة الكونفيق"
 
 msgid "config_added_message"
 msgstr "تمت إضافة خادمك إلى سوكوت. اختره من قائمة الخوادم ثم اتصل."
+
+msgid "invalid_config_link"
+msgstr "This doesn't look like a config link. Paste a link that starts with vless://, vmess://, ss://, trojan:// or hysteria2://."
+
+msgid "invalid_server_key"
+msgstr "That key isn't valid. Paste a config link (vless://, vmess://, ...) or a private-server invite link."

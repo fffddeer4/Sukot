@@ -2225,3 +2225,9 @@ msgstr "کانفیگ اضافه شد"
 
 msgid "config_added_message"
 msgstr "سرور شما به سوکوت اضافه شد. آن را از فهرست سرورها انتخاب کنید و متصل شوید."
+
+msgid "invalid_config_link"
+msgstr "این یک لینک کانفیگ معتبر نیست. لینکی را وارد کنید که با vless:// یا vmess:// یا ss:// یا trojan:// یا hysteria2:// شروع می‌شود."
+
+msgid "invalid_server_key"
+msgstr "کلید وارد شده معتبر نیست. لینک کانفیگ (vless://، vmess:// و ...) یا لینک دعوت سرور خصوصی را وارد کنید."
