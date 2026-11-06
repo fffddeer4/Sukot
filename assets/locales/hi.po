@@ -1,7 +1,7 @@
 # Translators:
 # Kalyan Dikshit <dikshitrocks93@gmail.com>, 2025
 # E2F_HI T1 <tx_e2f_hi_t1@ate2f.com>, 2026
-# Lantern, 2026
+# Sukot, 2026
 # tx_e2f_hi c3 <tx_e2f_hi_c3@ate2f.com>, 2026
 # e2f <projects@e2f.com>, 2026
 # tx_e2f_hi_r3 tx_e2f_hi_r3 <tx_e2f_hi_r3@ate2f.com>, 2026
@@ -292,7 +292,7 @@ msgstr "30 दिन का प्रो मुफ्त पाएं"
 msgid "share_message_referral_code"
 msgstr ""
 "Sukot प्रो के एक मुफ्त महीने के लिए, इस रेफरल कोड का उपयोग करें: %s ; आप "
-"इसे यहां से डाउनलोड कर सकते हैं: https://lantern.io/download"
+"इसे यहां से डाउनलोड कर सकते हैं: https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "समस्या रिपोर्ट सबमिट करें"
@@ -1469,7 +1469,7 @@ msgid "go_to_server_locations"
 msgstr "सर्वर स्थानों पर जाएं"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "वैकल्पिक डाउनलोड लिंक"

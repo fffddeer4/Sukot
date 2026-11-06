@@ -11,6 +11,7 @@ import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.content.getSystemService
+import org.getlantern.lantern.BuildConfig
 import org.getlantern.lantern.LanternApp
 import org.getlantern.lantern.MainActivity
 import org.getlantern.lantern.R
@@ -28,7 +29,7 @@ class NotificationHelper {
         private const val CHANNEL_DATA_USAGE = "data_usage"
         const val OPEN_URL = "SERVICE_OPEN_URL"
 
-        private const val VPN_DESC = "VPN"
+        private val VPN_DESC = BuildConfig.NOTIFICATION_CHANNEL_VPN
         private const val DATA_USAGE_DESC = "Data Usage"
         var notificationManager = LanternApp.application.getSystemService<NotificationManager>()!!
         val flags =
@@ -97,8 +98,8 @@ class NotificationHelper {
         return NotificationCompat.Builder(LanternApp.application, CHANNEL_VPN)
             .setShowWhen(false)
             .setOngoing(true)
-            .setContentTitle("Lantern")
-            .setContentText("Lantern VPN is running")
+            .setContentTitle(BuildConfig.NOTIFICATION_TITLE)
+            .setContentText(BuildConfig.NOTIFICATION_CONNECTED_TEXT)
             .setOnlyAlertOnce(true)
             .setSmallIcon(R.drawable.lantern_notification_icon)
             .addAction(
@@ -124,8 +125,8 @@ class NotificationHelper {
         return NotificationCompat.Builder(LanternApp.application, CHANNEL_VPN)
             .setShowWhen(false)
             .setOngoing(true)
-            .setContentTitle("Lantern")
-            .setContentText("Starting Lantern VPN...")
+            .setContentTitle(BuildConfig.NOTIFICATION_TITLE)
+            .setContentText(BuildConfig.NOTIFICATION_STARTING_TEXT)
             .setOnlyAlertOnce(true)
             .setSmallIcon(R.drawable.lantern_notification_icon)
             .setContentIntent(contentIntent)

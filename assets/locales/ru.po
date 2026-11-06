@@ -4,7 +4,7 @@
 # Lowrider <pams@imail.ru>, 2025
 # e2f <projects@e2f.com>, 2026
 # e2f_ru r3 <tx_e2f_ru_r3@ate2f.com>, 2026
-# Lantern, 2026
+# Sukot, 2026
 # sayanvd <sayanvd@yandex.ru>, 2026
 # Helen Russel <coo@workogram.com>, 2026
 # Tina T, 2026
@@ -273,7 +273,7 @@ msgstr "Разрешить установку приложений"
 
 msgid "android_sideload_install_permission_message"
 msgstr ""
-"Android требуется разрешение на установку обновлений из Lantern. Включите "
+"Android требуется разрешение на установку обновлений из Sukot. Включите "
 "«Разрешить из этого источника», затем снова проверьте обновления."
 
 msgid "error_install_update"
@@ -300,7 +300,7 @@ msgid "share_message_referral_code"
 msgstr ""
 "Чтобы получить один бесплатный месяц подписки на Sukot Про, используйте "
 "этот реферальный код: %s ; Можете скачать приложение здесь: "
-"https://lantern.io/download"
+"https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "Отправить отчет о проблеме"
@@ -478,7 +478,7 @@ msgid "websites_bypassing_vpn"
 msgstr "Сайты обходящие VPN (%d)"
 
 msgid "logs_share_message"
-msgstr "Вот мои диагностические логи из Lantern."
+msgstr "Вот мои диагностические логи из Sukot."
 
 msgid "payment_options"
 msgstr "Способы оплаты"
@@ -528,7 +528,7 @@ msgid "sign_in_with_email"
 msgstr "Войти через email"
 
 msgid "enter_your_lantern_pro_account_details"
-msgstr "Введите данные вашего аккаунта Lantern."
+msgstr "Введите данные вашего аккаунта Sukot."
 
 msgid "email"
 msgstr "Email"
@@ -543,7 +543,7 @@ msgid "reset_your_password"
 msgstr "Сбросить пароль"
 
 msgid "enter_your_lantern_pro_account_email"
-msgstr "Введите email вашего аккаунта Lantern."
+msgstr "Введите email вашего аккаунта Sukot."
 
 msgid "reset_password"
 msgstr "Сбросить пароль"
@@ -1211,7 +1211,7 @@ msgstr "Присоединиться к серверу"
 msgid "private_server_usage_message"
 msgstr ""
 "Использование частного сервера не учитывается в вашем ежедневном лимите "
-"данных Lantern."
+"данных Sukot."
 
 msgid "manage_private_servers"
 msgstr "Управление частными серверами"
@@ -1259,7 +1259,7 @@ msgstr "Доверяйте оператору сервера"
 msgid "trust_server_operator_message_one"
 msgstr ""
 "Частные серверы размещаются и управляются отдельными лицами или "
-"организациями вне Lantern. Когда вы подключаетесь к одному из них, вы "
+"организациями вне Sukot. Когда вы подключаетесь к одному из них, вы "
 "доверяете человеку, который им управляет, обеспечивать его безопасность и "
 "использовать ответственно."
 
@@ -1477,7 +1477,7 @@ msgid "go_to_server_locations"
 msgstr "Перейти к расположениям серверов"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "Альтернативные ссылки для скачивания"
@@ -1767,7 +1767,7 @@ msgid "helps_improve_lantern_performance"
 msgstr "Помогает улучшить производительность Sukot"
 
 msgid "changes_applied_after_restart"
-msgstr "Изменения будут применены после перезапуска Lantern."
+msgstr "Изменения будут применены после перезапуска Sukot."
 
 msgid "email_deliverability_notice"
 msgstr "Уведомление о доставке электронной почты"
@@ -1803,7 +1803,7 @@ msgstr "Весь трафик через VPN"
 msgid "smart_routing_description"
 msgstr ""
 "Умная маршрутизация использует правила для конкретных регионов, чтобы "
-"автоматически направлять трафик, требующий VPN, через Lantern. Весь "
+"автоматически направлять трафик, требующий VPN, через Sukot. Весь "
 "остальной трафик идёт напрямую для обеспечения скорости и надёжности."
 
 msgid "add_apps_websites_bypass_vpn"
@@ -2016,7 +2016,7 @@ msgid "vpn_conflict_body"
 msgstr ""
 "На вашем устройстве работает другой VPN. Sukot работает лучше всего, когда"
 " является единственным активным VPN. Для наилучшего результата отключите его"
-" перед использованием Lantern."
+" перед использованием Sukot."
 
 msgid "vpn_conflict_dismiss"
 msgstr "Понятно"
@@ -2128,7 +2128,7 @@ msgstr "Добавить %s в список обхода?"
 
 msgid "bypass_browser_warning_body"
 msgstr ""
-"%s будет подключаться напрямую, без защиты Lantern. В странах, где "
+"%s будет подключаться напрямую, без защиты Sukot. В странах, где "
 "блокируются определённые сайты, некоторые сайты перестанут загружаться."
 
 msgid "add_anyway"
@@ -2140,7 +2140,7 @@ msgstr "Добавить все приложения в список обход�
 msgid "bypass_all_warning_body"
 msgstr ""
 "Это включает браузеры, такие как %s. Приложения из списка обхода "
-"подключаются напрямую, без защиты Lantern. В странах, где блокируются "
+"подключаются напрямую, без защиты Sukot. В странах, где блокируются "
 "определённые сайты, некоторые сайты перестанут загружаться."
 
 msgid "add_all_except_browsers"
@@ -2154,7 +2154,7 @@ msgstr "Обходить VPN для этого приложения?"
 
 msgid "bypass_app_first_time_body"
 msgstr ""
-"%s будет подключаться напрямую, без защиты Lantern. Если оно заблокировано в"
+"%s будет подключаться напрямую, без защиты Sukot. Если оно заблокировано в"
 " вашей стране, оно может перестать работать."
 
 msgid "bypass_website_first_time_title"
@@ -2162,7 +2162,7 @@ msgstr "Обходить VPN для этого сайта?"
 
 msgid "bypass_website_first_time_body"
 msgstr ""
-"%s будет подключаться напрямую, без защиты Lantern. Если он заблокирован в "
+"%s будет подключаться напрямую, без защиты Sukot. Если он заблокирован в "
 "вашей стране, он может перестать работать."
 
 msgid "upsell_upgrade_suffix"

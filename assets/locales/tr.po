@@ -4,7 +4,7 @@
 # efe kerem sözeri <eksozeri@hotmail.com>, 2025
 # Volkan Gezer <volkangezer@gmail.com>, 2025
 # Emre Deniz, 2025
-# Lantern, 2026
+# Sukot, 2026
 # Teo Westbrook, 2026
 # Gökhan Kalayci <gkmediagokhan@gmail.com>, 2026
 # Mehmet Çağrı Aksoy <mcagriaksoy@yandex.com>, 2026
@@ -298,7 +298,7 @@ msgstr "30 gün ücretsiz Pro kazan"
 msgid "share_message_referral_code"
 msgstr ""
 "Bir ay ücretsiz Sukot Pro için bu tavsiye kodunu kullan: %s ; Buradan "
-"indirebilirsin: https://lantern.io/download"
+"indirebilirsin: https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "Sorun Raporu Gönder"
@@ -1465,7 +1465,7 @@ msgid "go_to_server_locations"
 msgstr "Sunucu Konumlarına Git"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "Alternatif İndirme Linkleri"

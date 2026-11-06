@@ -84,8 +84,8 @@ object AndroidSideloadInstaller {
                 "Unable to create update cache directory"
             }
 
-            val partialFile = File(updatesDir, "Lantern.apk.part")
-            val apkFile = File(updatesDir, "Lantern.apk")
+            val partialFile = File(updatesDir, "Sukot.apk.part")
+            val apkFile = File(updatesDir, "Sukot.apk")
             if (partialFile.exists()) partialFile.delete()
 
             AppLogger.d(TAG, "Downloading sideload APK from $rawUrl")

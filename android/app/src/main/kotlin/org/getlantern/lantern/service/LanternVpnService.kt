@@ -54,7 +54,9 @@ class LanternVpnService :
     PlatformInterfaceWrapper {
     companion object {
         private const val TAG = "LanternVpnService"
-        private const val sessionName = "LanternVpn"
+        // Session label shown by the OS (VPN dialog / status). Comes from the
+        // identity profile so shipped builds read "Sukot VPN".
+        private val sessionName = BuildConfig.VPN_SESSION_NAME
         const val ACTION_START_RADIANCE = "com.getlantern.START_RADIANCE"
         const val ACTION_START_VPN = "org.getlantern.START_VPN"
         const val ACTION_CONNECT_TO_SERVER = "org.getlantern.CONNECT_TO_SERVER"

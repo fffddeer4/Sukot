@@ -1,5 +1,5 @@
 # Translators:
-# Lantern, 2026
+# Sukot, 2026
 # Derek F <derek@getlantern.org>, 2026
 # 
 msgid ""
@@ -286,7 +286,7 @@ msgstr "30 gün mugt Pro alyň"
 msgid "share_message_referral_code"
 msgstr ""
 "Mugt bir aýlyk Sukot Pro almak üçin şu taýşdyryş kodyny ulanyň: %s ; Ony "
-"şu ýerden göçürip alyp bilersiňiz: https://lantern.io/download"
+"şu ýerden göçürip alyp bilersiňiz: https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "Mesele barada habar ber"
@@ -1447,7 +1447,7 @@ msgid "go_to_server_locations"
 msgstr "Serwer ýerleşişlerine git"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "Alternatiw göçürip almak baglanyşyklary"

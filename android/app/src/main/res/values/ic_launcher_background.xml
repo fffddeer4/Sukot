@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ic_launcher_background">#010105</color>
+    <!-- Deep poster navy — matches the Sukot launch splash base color. -->
+    <color name="ic_launcher_background">#01051E</color>
 </resources>

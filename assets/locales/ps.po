@@ -1,5 +1,5 @@
 # Translators:
-# Lantern, 2026
+# Sukot, 2026
 # Derek F <derek@getlantern.org>, 2026
 # 
 msgid ""
@@ -291,7 +291,7 @@ msgstr "د 30 ورځو لپاره وړیا پرو ترلاسه کړئ"
 msgid "share_message_referral_code"
 msgstr ""
 "د Sukot Pro یوې وړیا میاشتې لپاره، دا حواله کوډ وکاروئ: %s ; تاسو کولی شئ "
-"دلته ډاونلوډ کړئ: https://lantern.io/download"
+"دلته ډاونلوډ کړئ: https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "د ستونزې راپور وسپارئ"
@@ -352,7 +352,7 @@ msgstr "د تایید لپاره پټنوم دننه کړئ"
 
 msgid "cannot_view_logs"
 msgstr ""
-"Sukot ستاسو تشخیصي لاګونه نشي لیدلی، مګر کله چې تاسو زموږ ته ولیږئ.Lantern"
+"Sukot ستاسو تشخیصي لاګونه نشي لیدلی، مګر کله چې تاسو زموږ ته ولیږئ.Sukot"
 " ستاسو تشخیصي لاګونه نشي کتلی پرته له دې چې تاسو موږ ته یې واستوئ."
 
 msgid "split_tunneling_mode"
@@ -1270,7 +1270,7 @@ msgstr ""
 msgid "trust_server_operator_message_two"
 msgstr ""
 "Sukot خصوصي سرورونه نه اداره کوي او نه څارنه کوي. ډاډ ترلاسه کړئ چې تاسو د"
-" سرور چلوونکي پیژنئ او باور لرئ مخکې له دې چې یوې ته شامل شئ.Lantern شخصي "
+" سرور چلوونکي پیژنئ او باور لرئ مخکې له دې چې یوې ته شامل شئ.Sukot شخصي "
 "سرورونه نه مدیریت کوي او نه څاري. ډاډ ترلاسه کړئ چې تاسو د سرور چلوونکی "
 "پیژنئ او باور یې کوئ مخکې له دې چې یو سره یوځای شئ."
 
@@ -1487,7 +1487,7 @@ msgid "go_to_server_locations"
 msgstr "د سرور موقعیتونو ته لاړ شئ"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "بدیل ډاونلوډ لینکونه"

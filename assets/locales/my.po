@@ -1,5 +1,5 @@
 # Translators:
-# Lantern, 2026
+# Sukot, 2026
 # e2f <projects@e2f.com>, 2026
 # tx_e2f_bu r2 <tx_e2f_bu_r2@ate2f.com>, 2026
 # tx_e2f_my t1 <divinahramaroson@gmail.com>, 2026
@@ -291,7 +291,7 @@ msgstr "Pro ကို ရက် 30 အခမဲ့ရယူပါ"
 msgid "share_message_referral_code"
 msgstr ""
 "Sukot Pro တစ်လအခမဲ့အတွက်၊ ဒီရည်ညွှန်းကုဒ်ကို အသုံးပြုပါ- %s ; သင် ဒီမှာ "
-"ဒေါင်းလုဒ်လုပ်နိုင်ပါတယ်- https://lantern.io/download"
+"ဒေါင်းလုဒ်လုပ်နိုင်ပါတယ်- https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "ပြဿနာ အစီရင်ခံစာ တင်သွင်းပါ"
@@ -1488,7 +1488,7 @@ msgid "go_to_server_locations"
 msgstr "ဆာဗာ တည်နေရာများသို့ သွားပါ"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "အခြား ဒေါင်းလုဒ် လင့်များ"

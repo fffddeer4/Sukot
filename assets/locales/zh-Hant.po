@@ -2,7 +2,7 @@
 # Chi-Hsun Tsai, 2025
 # YFdyh000 <yfdyh000@gmail.com>, 2025
 # Aki, 2025
-# Lantern, 2026
+# Sukot, 2026
 # TW C2 <tx_e2f_tw_c2@ate2f.com>, 2026
 # fffw <fffw@getlantern.org>, 2026
 # e2f <projects@e2f.com>, 2026
@@ -277,7 +277,7 @@ msgid "get_30_days_of_pro_free"
 msgstr "免費獲得 30 天專業版"
 
 msgid "share_message_referral_code"
-msgstr "免費獲得一個月的 Sukot 專業版,請使用此推薦碼:%s;你可以從這裡下載:https://lantern.io/download"
+msgstr "免費獲得一個月的 Sukot 專業版,請使用此推薦碼:%s;你可以從這裡下載:https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "提交問題回報"
@@ -1364,7 +1364,7 @@ msgid "go_to_server_locations"
 msgstr "前往伺服器位置"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "替代下載連結"

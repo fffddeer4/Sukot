@@ -10,6 +10,7 @@ import 'package:lantern/features/home/provider/app_event_notifier.dart';
 import 'package:lantern/features/home/provider/app_setting_notifier.dart';
 import 'package:lantern/features/home/provider/feature_flag_notifier.dart';
 import 'package:lantern/features/home/provider/home_notifier.dart';
+import 'package:lantern/features/home/add_config_sheet.dart';
 import 'package:lantern/features/home/pro_renewal_popup.dart';
 import 'package:lantern/features/home/provider/radiance_settings_providers.dart';
 import 'package:lantern/features/home/vpn_tab.dart';
@@ -299,6 +300,23 @@ class Home extends HookConsumerWidget {
           : TabBarView(
               controller: tabController,
               children: const [VpnTab(), ActionModeTab()],
+            ),
+      // V2Ray-style + button on the lobby: opens the Add Config sheet
+      // (paste / QR scan) which imports custom proxy servers through the
+      // same core API as the private-server flow. Hidden on the Unbounded
+      // tab where adding configs makes no sense.
+      floatingActionButton: onUnboundedTab.value
+          ? null
+          : FloatingActionButton(
+              key: const Key('home.add_config'),
+              heroTag: 'home.add_config',
+              tooltip: 'add_config'.i18n,
+              onPressed: () => showAddConfigSheet(context),
+              backgroundColor: AppColors.blue6,
+              foregroundColor: AppColors.white,
+              elevation: 4,
+              shape: const CircleBorder(),
+              child: const Icon(Icons.add, size: 28),
             ),
       bottomNavigationBar: !showUnboundedTab || !PlatformUtils.isMobile
           ? null

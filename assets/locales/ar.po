@@ -6,7 +6,7 @@
 # e2f <projects@e2f.com>, 2026
 # 6ad90dadbe5d08991a98500e1efbdbb4_9d79615 <7392e61add82b364ab0393a04573af48_721156>, 2026
 # tx_e2f_ar_r5 tx_e2f_ar_r5, 2026
-# Lantern, 2026
+# Sukot, 2026
 # Abed Abedd <abderrahman.younis@gmail.com>, 2026
 # 160565ee57b988ee904d03fec374ff93_4f79b8c <73ec7ace4de62e6bb6454cb54e990a4d_721149>, 2026
 # Eddie Alshehri <P@ssion.net>, 2026
@@ -273,7 +273,7 @@ msgstr "السماح بتثبيت التطبيقات"
 
 msgid "android_sideload_install_permission_message"
 msgstr ""
-"يحتاج أندرويد إلى إذن لتثبيت التحديثات من Lantern. فعّل خيار السماح من هذا "
+"يحتاج أندرويد إلى إذن لتثبيت التحديثات من Sukot. فعّل خيار السماح من هذا "
 "المصدر، ثم تحقق من التحديثات مرة أخرى."
 
 msgid "error_install_update"
@@ -299,7 +299,7 @@ msgstr "احصل على 30 يومًا من برو مجانًا"
 msgid "share_message_referral_code"
 msgstr ""
 "للحصول على شهر مجاني من Sukot برو، استخدم رمز الإحالة هذا: %s ؛ يمكنك "
-"تنزيله من هنا: https://lantern.io/download"
+"تنزيله من هنا: https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "إرسال تقرير المشكلة"
@@ -475,7 +475,7 @@ msgid "websites_bypassing_vpn"
 msgstr "المواقع التي تتجاوز VPN (%d)"
 
 msgid "logs_share_message"
-msgstr "هذه سجلات التشخيص الخاصة بي من Lantern."
+msgstr "هذه سجلات التشخيص الخاصة بي من Sukot."
 
 msgid "payment_options"
 msgstr "خيارات الدفع"
@@ -1183,7 +1183,7 @@ msgid "join_server"
 msgstr "الانضمام إلى الخادم"
 
 msgid "private_server_usage_message"
-msgstr "استخدام الخادم الخاص لا يُحتسب ضمن حد البيانات اليومي لـ Lantern."
+msgstr "استخدام الخادم الخاص لا يُحتسب ضمن حد البيانات اليومي لـ Sukot."
 
 msgid "manage_private_servers"
 msgstr "إدارة الخوادم الخاصة"
@@ -1230,7 +1230,7 @@ msgstr "ثق بمشغل الخادم"
 
 msgid "trust_server_operator_message_one"
 msgstr ""
-"الخوادم الخاصة تستضيفها وتديرها أفراد أو مؤسسات خارج Lantern. عندما تتصل "
+"الخوادم الخاصة تستضيفها وتديرها أفراد أو مؤسسات خارج Sukot. عندما تتصل "
 "بأحدها، فأنت تثق بالشخص الذي يديرها لإدارتها بأمان واستخدامها بمسؤولية."
 
 msgid "trust_server_operator_message_two"
@@ -1441,7 +1441,7 @@ msgid "go_to_server_locations"
 msgstr "الانتقال إلى مواقع الخوادم"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "روابط تنزيل بديلة"
@@ -1718,7 +1718,7 @@ msgid "helps_improve_lantern_performance"
 msgstr "يساعد في تحسين أداء Sukot"
 
 msgid "changes_applied_after_restart"
-msgstr "سيتم تطبيق التغييرات بعد إعادة تشغيل Lantern."
+msgstr "سيتم تطبيق التغييرات بعد إعادة تشغيل Sukot."
 
 msgid "email_deliverability_notice"
 msgstr "إشعار إمكانية تسليم البريد الإلكتروني"
@@ -1957,7 +1957,7 @@ msgstr "تم اكتشاف تعارض في VPN"
 msgid "vpn_conflict_body"
 msgstr ""
 "هناك VPN آخر يعمل على جهازك. يعمل Sukot بشكل أفضل عندما يكون VPN الوحيد "
-"النشط. للحصول على أفضل النتائج، يرجى فصله قبل استخدام Lantern."
+"النشط. للحصول على أفضل النتائج، يرجى فصله قبل استخدام Sukot."
 
 msgid "vpn_conflict_dismiss"
 msgstr "فهمت"
@@ -2063,7 +2063,7 @@ msgstr "هل تريد إضافة %s إلى قائمة التجاوز؟"
 
 msgid "bypass_browser_warning_body"
 msgstr ""
-"سيتصل %s مباشرة، بدون حماية Lantern. في البلدان التي تحجب مواقع معينة، "
+"سيتصل %s مباشرة، بدون حماية Sukot. في البلدان التي تحجب مواقع معينة، "
 "ستتوقف بعض المواقع عن التحميل."
 
 msgid "add_anyway"
@@ -2075,7 +2075,7 @@ msgstr "هل تريد إضافة جميع التطبيقات إلى قائمة �
 msgid "bypass_all_warning_body"
 msgstr ""
 "يشمل ذلك متصفحات مثل %s. تتصل التطبيقات الموجودة في قائمة التجاوز مباشرة، "
-"بدون حماية Lantern. في البلدان التي تحجب مواقع معينة، ستتوقف بعض المواقع عن "
+"بدون حماية Sukot. في البلدان التي تحجب مواقع معينة، ستتوقف بعض المواقع عن "
 "التحميل."
 
 msgid "add_all_except_browsers"
@@ -2089,7 +2089,7 @@ msgstr "هل تريد تجاوز VPN لهذا التطبيق؟"
 
 msgid "bypass_app_first_time_body"
 msgstr ""
-"سيتصل %s مباشرة، بدون حماية Lantern. إذا كان محجوبًا في بلدك، فقد يتوقف عن "
+"سيتصل %s مباشرة، بدون حماية Sukot. إذا كان محجوبًا في بلدك، فقد يتوقف عن "
 "العمل."
 
 msgid "bypass_website_first_time_title"
@@ -2097,7 +2097,7 @@ msgstr "هل تريد تجاوز VPN لهذا الموقع؟"
 
 msgid "bypass_website_first_time_body"
 msgstr ""
-"سيتصل %s مباشرة، بدون حماية Lantern. إذا كان محجوبًا في بلدك، فقد يتوقف عن "
+"سيتصل %s مباشرة، بدون حماية Sukot. إذا كان محجوبًا في بلدك، فقد يتوقف عن "
 "العمل."
 
 msgid "upsell_upgrade_suffix"
@@ -2155,3 +2155,24 @@ msgstr "إغلاق"
 
 msgid "unbounded_status_waiting"
 msgstr "في انتظار البدء"
+
+msgid "add_config"
+msgstr "إضافة كونفيق"
+
+msgid "add_config_hint"
+msgstr "الصق رابط الكونفيق (vmess أو vless أو trojan أو ss أو hysteria2 وغيرها) أو امسح رمز QR. ضع كل رابط إضافي في سطر مستقل."
+
+msgid "config_links"
+msgstr "روابط الكونفيق"
+
+msgid "config_links_hint"
+msgstr "vmess://… أو vless://…"
+
+msgid "add_config_button"
+msgstr "إضافة"
+
+msgid "config_added_title"
+msgstr "تمت إضافة الكونفيق"
+
+msgid "config_added_message"
+msgstr "تمت إضافة خادمك إلى سوكوت. اختره من قائمة الخوادم ثم اتصل."

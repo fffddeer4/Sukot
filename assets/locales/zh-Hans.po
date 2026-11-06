@@ -1,6 +1,6 @@
 # Translators:
 # Aki, 2025
-# Lantern, 2026
+# Sukot, 2026
 # CN R10 <tx_e2f_cn_r10@ate2f.com>, 2026
 # fffw <fffw@getlantern.org>, 2026
 # e2f <projects@e2f.com>, 2026
@@ -275,7 +275,7 @@ msgid "get_30_days_of_pro_free"
 msgstr "免费获得 30 天专业版"
 
 msgid "share_message_referral_code"
-msgstr "免费获得一个月的蓝灯专业版,请使用此邀请码:%s;您可以从这里下载:https://lantern.io/download"
+msgstr "免费获得一个月的蓝灯专业版,请使用此邀请码:%s;您可以从这里下载:https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "提交问题报告"
@@ -1361,7 +1361,7 @@ msgid "go_to_server_locations"
 msgstr "前往服务器位置"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "备用下载链接"

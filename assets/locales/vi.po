@@ -4,7 +4,7 @@
 # Yen Le Van <yenlevanbk@gmail.com>, 2026
 # e2f <projects@e2f.com>, 2026
 # Anh Phan <vietnamesel10n@gmail.com>, 2026
-# Lantern, 2026
+# Sukot, 2026
 # e2f_vi r1 <tx_e2f_vi_r1@ate2f.com>, 2026
 # Derek F <derek@getlantern.org>, 2026
 # 
@@ -268,7 +268,7 @@ msgstr "Cho phép cài đặt ứng dụng"
 
 msgid "android_sideload_install_permission_message"
 msgstr ""
-"Android cần quyền để cài đặt bản cập nhật từ Lantern. Hãy bật Cho phép từ "
+"Android cần quyền để cài đặt bản cập nhật từ Sukot. Hãy bật Cho phép từ "
 "nguồn này, sau đó kiểm tra cập nhật lại."
 
 msgid "error_install_update"
@@ -294,7 +294,7 @@ msgstr "Nhận 30 ngày Pro miễn phí"
 msgid "share_message_referral_code"
 msgstr ""
 "Để nhận một tháng Sukot Pro miễn phí, hãy sử dụng mã giới thiệu này: %s ; "
-"Bạn có thể tải xuống từ đây: https://lantern.io/download"
+"Bạn có thể tải xuống từ đây: https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "Gửi báo cáo sự cố"
@@ -476,7 +476,7 @@ msgid "websites_bypassing_vpn"
 msgstr "Trang web bỏ qua VPN (%d)"
 
 msgid "logs_share_message"
-msgstr "Đây là nhật ký chẩn đoán của tôi từ Lantern."
+msgstr "Đây là nhật ký chẩn đoán của tôi từ Sukot."
 
 msgid "payment_options"
 msgstr "Phương thức thanh toán"
@@ -1206,7 +1206,7 @@ msgstr "Tham gia máy chủ"
 msgid "private_server_usage_message"
 msgstr ""
 "Lưu lượng sử dụng máy chủ riêng không được tính vào hạn mức dữ liệu hàng "
-"ngày của Lantern."
+"ngày của Sukot."
 
 msgid "manage_private_servers"
 msgstr "Quản lý máy chủ riêng"
@@ -1254,7 +1254,7 @@ msgstr "Tin tưởng người vận hành máy chủ"
 msgid "trust_server_operator_message_one"
 msgstr ""
 "Máy chủ riêng được lưu trữ và vận hành bởi cá nhân hoặc tổ chức bên ngoài "
-"Lantern. Khi bạn kết nối với một máy chủ, bạn đang tin tưởng người vận hành "
+"Sukot. Khi bạn kết nối với một máy chủ, bạn đang tin tưởng người vận hành "
 "nó để quản lý an toàn và sử dụng có trách nhiệm."
 
 msgid "trust_server_operator_message_two"
@@ -1469,7 +1469,7 @@ msgid "go_to_server_locations"
 msgstr "Đi tới vị trí máy chủ"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "Liên kết tải xuống thay thế"
@@ -1753,7 +1753,7 @@ msgid "helps_improve_lantern_performance"
 msgstr "Giúp cải thiện hiệu suất của Sukot"
 
 msgid "changes_applied_after_restart"
-msgstr "Các thay đổi sẽ được áp dụng sau khi khởi động lại Lantern."
+msgstr "Các thay đổi sẽ được áp dụng sau khi khởi động lại Sukot."
 
 msgid "email_deliverability_notice"
 msgstr "Thông báo về khả năng gửi email"
@@ -1789,7 +1789,7 @@ msgstr "Toàn bộ lưu lượng qua VPN"
 msgid "smart_routing_description"
 msgstr ""
 "Định tuyến Thông minh sử dụng các quy tắc cụ thể theo khu vực để tự động gửi"
-" lưu lượng cần VPN qua Lantern. Tất cả lưu lượng khác sẽ kết nối trực tiếp "
+" lưu lượng cần VPN qua Sukot. Tất cả lưu lượng khác sẽ kết nối trực tiếp "
 "để có tốc độ và độ tin cậy cao hơn."
 
 msgid "add_apps_websites_bypass_vpn"
@@ -2001,7 +2001,7 @@ msgid "vpn_conflict_body"
 msgstr ""
 "Một VPN khác đang chạy trên thiết bị của bạn. Sukot hoạt động tốt nhất khi"
 " là VPN duy nhất đang hoạt động. Để có kết quả tốt nhất, vui lòng ngắt kết "
-"nối VPN đó trước khi dùng Lantern."
+"nối VPN đó trước khi dùng Sukot."
 
 msgid "vpn_conflict_dismiss"
 msgstr "Đã nhận được"
@@ -2113,7 +2113,7 @@ msgstr "Thêm %s vào danh sách bỏ qua?"
 
 msgid "bypass_browser_warning_body"
 msgstr ""
-"%s sẽ kết nối trực tiếp, không có sự bảo vệ của Lantern. Ở các quốc gia chặn"
+"%s sẽ kết nối trực tiếp, không có sự bảo vệ của Sukot. Ở các quốc gia chặn"
 " một số trang web nhất định, một số trang sẽ không tải được nữa."
 
 msgid "add_anyway"
@@ -2125,7 +2125,7 @@ msgstr "Thêm tất cả ứng dụng vào danh sách bỏ qua?"
 msgid "bypass_all_warning_body"
 msgstr ""
 "Bao gồm cả các trình duyệt như %s. Ứng dụng trong danh sách bỏ qua kết nối "
-"trực tiếp, không có sự bảo vệ của Lantern. Ở các quốc gia chặn một số trang "
+"trực tiếp, không có sự bảo vệ của Sukot. Ở các quốc gia chặn một số trang "
 "web nhất định, một số trang sẽ không tải được nữa."
 
 msgid "add_all_except_browsers"
@@ -2139,7 +2139,7 @@ msgstr "Bỏ qua VPN cho ứng dụng này?"
 
 msgid "bypass_app_first_time_body"
 msgstr ""
-"%s sẽ kết nối trực tiếp, không có sự bảo vệ của Lantern. Nếu ứng dụng này bị"
+"%s sẽ kết nối trực tiếp, không có sự bảo vệ của Sukot. Nếu ứng dụng này bị"
 " chặn ở quốc gia của bạn, nó có thể ngừng hoạt động."
 
 msgid "bypass_website_first_time_title"
@@ -2147,7 +2147,7 @@ msgstr "Bỏ qua VPN cho trang web này?"
 
 msgid "bypass_website_first_time_body"
 msgstr ""
-"%s sẽ kết nối trực tiếp, không có sự bảo vệ của Lantern. Nếu trang web này "
+"%s sẽ kết nối trực tiếp, không có sự bảo vệ của Sukot. Nếu trang web này "
 "bị chặn ở quốc gia của bạn, nó có thể ngừng hoạt động."
 
 msgid "upsell_upgrade_suffix"

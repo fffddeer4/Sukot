@@ -3,7 +3,7 @@
 # Acclaro Thailand <bkk-project@acclaro.com>, 2026
 # Thai Localization, 2026
 # e2f <projects@e2f.com>, 2026
-# Lantern, 2026
+# Sukot, 2026
 # tx_e2f_th c5 <tx_e2f_th_c5@ate2f.com>, 2026
 # Derek F <derek@getlantern.org>, 2026
 # 
@@ -290,7 +290,7 @@ msgstr "รับ Pro ฟรี 30 วัน"
 msgid "share_message_referral_code"
 msgstr ""
 "รับ Sukot Pro ฟรีหนึ่งเดือน ใช้รหัสแนะนำนี้: %s ; "
-"คุณสามารถดาวน์โหลดได้จาก: https://lantern.io/download"
+"คุณสามารถดาวน์โหลดได้จาก: https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "ส่งรายงานปัญหา"
@@ -1445,7 +1445,7 @@ msgid "go_to_server_locations"
 msgstr "ไปที่ตำแหน่งเซิร์ฟเวอร์"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "ลิงก์ดาวน์โหลดทางเลือก"

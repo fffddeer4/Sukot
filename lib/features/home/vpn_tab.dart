@@ -119,14 +119,25 @@ class _HeroStatus extends HookConsumerWidget {
       padding: EdgeInsets.symmetric(vertical: 12.h),
       child: Column(
         children: [
-          _PowerButton(
-            status: vpnStatus,
-            ringColor: ringColor,
-            isDark: isDark,
-            onTap: () {
-              appLogger.info('VPN power button tapped');
-              handleVPNStateChange(ref, context);
-            },
+          // Sukot guardian banner behind the power button — the poster art
+          // sets the deep-blue mood while the button stays fully tappable.
+          Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              const _HeroBanner(),
+              Padding(
+                padding: EdgeInsets.only(top: 12.h),
+                child: _PowerButton(
+                  status: vpnStatus,
+                  ringColor: ringColor,
+                  isDark: isDark,
+                  onTap: () {
+                    appLogger.info('VPN power button tapped');
+                    handleVPNStateChange(ref, context);
+                  },
+                ),
+              ),
+            ],
           ),
           SizedBox(height: 16.h),
           Text(
@@ -190,6 +201,83 @@ class _HeroStatus extends HookConsumerWidget {
     final s = d.inSeconds % 60;
     String two(int n) => n.toString().padLeft(2, '0');
     return h > 0 ? '${two(h)}:${two(m)}:${two(s)}' : '${two(m)}:${two(s)}';
+  }
+}
+
+/// Rounded poster-art backdrop behind the power button. Deep navy with the
+/// hooded guardian art, a darkening gradient for contrast and the brand
+/// motto at the bottom — presentational only.
+class _HeroBanner extends StatelessWidget {
+  const _HeroBanner();
+
+  @override
+  Widget build(BuildContext context) {
+    final height = 150.0.r + 44.h;
+    return Container(
+      width: double.infinity,
+      height: height,
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(28.r),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFF020817), Color(0xFF04123A), Color(0xFF0A2A6B)],
+        ),
+        border: Border.all(
+          color: AppColors.blue5.withValues(alpha: 0.35),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.blue9.withValues(alpha: 0.35),
+            blurRadius: 26,
+            offset: const Offset(0, 10),
+          ),
+        ],
+      ),
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          Opacity(
+            opacity: 0.92,
+            child: Image.asset(
+              'assets/images/sukot_banner.jpg',
+              fit: BoxFit.cover,
+              alignment: Alignment.topCenter,
+            ),
+          ),
+          DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  const Color(0xFF01051E).withValues(alpha: 0.25),
+                  const Color(0xFF01051E).withValues(alpha: 0.55),
+                  const Color(0xFF01051E).withValues(alpha: 0.90),
+                ],
+                stops: const [0.0, 0.55, 1.0],
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 10.h),
+              child: Text(
+                'STAY FREE • STAY SAFE',
+                style: TextStyle(
+                  fontSize: 9.sp,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 3.2,
+                  color: AppColors.blue3,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 

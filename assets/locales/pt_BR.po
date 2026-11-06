@@ -3,7 +3,7 @@
 # Flávio Veras <flaviove@gmail.com>, 2025
 # 68aa2b710696597d2c15b3d803993bee_52a723c <d707001f82511d8467de1cfc369e967e_419818>, 2025
 # onlurking <diogo2fex@gmail.com>, 2025
-# Lantern, 2026
+# Sukot, 2026
 # Eduardo Souza Santos <sseduardo13@gmail.com>, 2026
 # Manuela Silva <mmsrs@sky.com>, 2026
 # drebs <drebs@riseup.net>, 2026
@@ -271,7 +271,7 @@ msgstr "Permitir instalação de apps"
 
 msgid "android_sideload_install_permission_message"
 msgstr ""
-"O Android precisa de permissão para instalar atualizações do Lantern. Ative "
+"O Android precisa de permissão para instalar atualizações do Sukot. Ative "
 "Permitir desta fonte e verifique as atualizações novamente."
 
 msgid "error_install_update"
@@ -297,7 +297,7 @@ msgstr "Ganhe 30 dias de Pro grátis"
 msgid "share_message_referral_code"
 msgstr ""
 "Para ganhar um mês grátis de Sukot Pro, use este código de indicação: %s ;"
-" Você pode baixá-lo aqui: https://lantern.io/download"
+" Você pode baixá-lo aqui: https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "Enviar Relatório de Problema"
@@ -475,7 +475,7 @@ msgid "websites_bypassing_vpn"
 msgstr "Sites desviando da VPN (%d)"
 
 msgid "logs_share_message"
-msgstr "Aqui estão meus logs de diagnóstico do Lantern."
+msgstr "Aqui estão meus logs de diagnóstico do Sukot."
 
 msgid "payment_options"
 msgstr "Opções de Pagamento"
@@ -526,7 +526,7 @@ msgid "sign_in_with_email"
 msgstr "Entrar com Email"
 
 msgid "enter_your_lantern_pro_account_details"
-msgstr "Digite os detalhes da sua conta Lantern."
+msgstr "Digite os detalhes da sua conta Sukot."
 
 msgid "email"
 msgstr "Email"
@@ -541,7 +541,7 @@ msgid "reset_your_password"
 msgstr "Redefinir Sua Senha"
 
 msgid "enter_your_lantern_pro_account_email"
-msgstr "Digite o e-mail da sua conta Lantern."
+msgstr "Digite o e-mail da sua conta Sukot."
 
 msgid "reset_password"
 msgstr "Redefinir Senha"
@@ -1209,7 +1209,7 @@ msgstr "Entrar no Servidor"
 msgid "private_server_usage_message"
 msgstr ""
 "O uso de servidor privado não é contabilizado no limite diário de dados do "
-"Lantern."
+"Sukot."
 
 msgid "manage_private_servers"
 msgstr "Gerenciar Servidores Privados"
@@ -1257,7 +1257,7 @@ msgstr "Confie no Operador do Servidor"
 msgid "trust_server_operator_message_one"
 msgstr ""
 "Servidores privados são hospedados e operados por indivíduos ou organizações"
-" fora do Lantern. Quando você se conecta a um, está confiando na pessoa que "
+" fora do Sukot. Quando você se conecta a um, está confiando na pessoa que "
 "o opera para gerenciá-lo com segurança e usá-lo de forma responsável."
 
 msgid "trust_server_operator_message_two"
@@ -1475,7 +1475,7 @@ msgid "go_to_server_locations"
 msgstr "Ir Para Localizações de Servidor"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "Links Alternativos de Download"
@@ -1765,7 +1765,7 @@ msgid "helps_improve_lantern_performance"
 msgstr "Ajuda a melhorar o desempenho do Sukot"
 
 msgid "changes_applied_after_restart"
-msgstr "As alterações serão aplicadas após reiniciar o Lantern."
+msgstr "As alterações serão aplicadas após reiniciar o Sukot."
 
 msgid "email_deliverability_notice"
 msgstr "Aviso de Entregabilidade de E-mail"
@@ -1801,7 +1801,7 @@ msgstr "Todo o tráfego pela VPN"
 msgid "smart_routing_description"
 msgstr ""
 "O Roteamento Inteligente usa regras específicas da região para enviar "
-"automaticamente o tráfego que precisa da VPN através do Lantern. Todo o "
+"automaticamente o tráfego que precisa da VPN através do Sukot. Todo o "
 "outro tráfego vai direto para velocidade e confiabilidade."
 
 msgid "add_apps_websites_bypass_vpn"
@@ -2013,7 +2013,7 @@ msgid "vpn_conflict_body"
 msgstr ""
 "Outra VPN está em execução no seu dispositivo. O Sukot funciona melhor "
 "como sua única VPN ativa. Para melhores resultados, desconecte-a antes de "
-"usar o Lantern."
+"usar o Sukot."
 
 msgid "vpn_conflict_dismiss"
 msgstr "Got it"
@@ -2126,7 +2126,7 @@ msgstr "Adicionar %s à lista de exceções?"
 
 msgid "bypass_browser_warning_body"
 msgstr ""
-"%s vai se conectar diretamente, sem a proteção do Lantern. Em países que "
+"%s vai se conectar diretamente, sem a proteção do Sukot. Em países que "
 "bloqueiam certos sites, alguns sites deixarão de carregar."
 
 msgid "add_anyway"
@@ -2138,7 +2138,7 @@ msgstr "Adicionar todos os apps à lista de exceções?"
 msgid "bypass_all_warning_body"
 msgstr ""
 "Isso inclui navegadores como o %s. Os apps na lista de exceções se conectam "
-"diretamente, sem a proteção do Lantern. Em países que bloqueiam certos "
+"diretamente, sem a proteção do Sukot. Em países que bloqueiam certos "
 "sites, alguns sites deixarão de carregar."
 
 msgid "add_all_except_browsers"
@@ -2152,7 +2152,7 @@ msgstr "Ignorar a VPN para este app?"
 
 msgid "bypass_app_first_time_body"
 msgstr ""
-"%s vai se conectar diretamente, sem a proteção do Lantern. Se ele estiver "
+"%s vai se conectar diretamente, sem a proteção do Sukot. Se ele estiver "
 "bloqueado no seu país, pode parar de funcionar."
 
 msgid "bypass_website_first_time_title"
@@ -2160,7 +2160,7 @@ msgstr "Ignorar a VPN para este site?"
 
 msgid "bypass_website_first_time_body"
 msgstr ""
-"%s vai se conectar diretamente, sem a proteção do Lantern. Se ele estiver "
+"%s vai se conectar diretamente, sem a proteção do Sukot. Se ele estiver "
 "bloqueado no seu país, pode parar de funcionar."
 
 msgid "upsell_upgrade_suffix"

@@ -240,7 +240,7 @@ msgid "allow_unknown_app_installs"
 msgstr "Allow app installs"
 
 msgid "android_sideload_install_permission_message"
-msgstr "Android needs permission to install updates from Lantern. Turn on Allow from this source, then check for updates again."
+msgstr "Android needs permission to install updates from Sukot. Turn on Allow from this source, then check for updates again."
 
 msgid "error_install_update"
 msgstr "Unable to install update"
@@ -261,7 +261,7 @@ msgid "get_30_days_of_pro_free"
 msgstr "Get 30 days of Pro free"
 
 msgid "share_message_referral_code"
-msgstr "For a free month of Sukot Pro, use this referral code: %s ; You can download it from here: https://lantern.io/download"
+msgstr "For a free month of Sukot Pro, use this referral code: %s ; You can download it from here: https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "Submit Issue Report"
@@ -438,7 +438,7 @@ msgid "websites_bypassing_vpn"
 msgstr "Websites bypassing the VPN (%d)"
 
 msgid "logs_share_message"
-msgstr "Here are my diagnostic logs from Lantern."
+msgstr "Here are my diagnostic logs from Sukot."
 
 msgid "payment_options"
 msgstr "Payment Options"
@@ -1159,7 +1159,7 @@ msgid "trust_server_operator"
 msgstr "Trust the Server Operator"
 
 msgid "trust_server_operator_message_one"
-msgstr "Private servers are hosted and operated by individuals or organizations outside of Lantern. When you connect to one, you're trusting the person running it to manage it securely and use it responsibly."
+msgstr "Private servers are hosted and operated by individuals or organizations outside of Sukot. When you connect to one, you're trusting the person running it to manage it securely and use it responsibly."
 
 msgid "trust_server_operator_message_two"
 msgstr "Sukot does not manage or monitor private servers. Make sure you know and trust the server operator before joining one."
@@ -1363,7 +1363,7 @@ msgid "go_to_server_locations"
 msgstr "Go To Server Locations"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "Alternative Download Links"
@@ -1632,7 +1632,7 @@ msgid "helps_improve_lantern_performance"
 msgstr "Helps improve Sukot performance"
 
 msgid "changes_applied_after_restart"
-msgstr "Changes will be applied after restarting Lantern."
+msgstr "Changes will be applied after restarting Sukot."
 
 msgid "email_deliverability_notice"
 msgstr "Email Deliverability Notice"
@@ -1662,7 +1662,7 @@ msgid "all_traffic_through_vpn"
 msgstr "All traffic through VPN"
 
 msgid "smart_routing_description"
-msgstr "Smart Routing uses region-specific rules to automatically send traffic that needs the VPN through Lantern. All other traffic goes direct for speed and reliability."
+msgstr "Smart Routing uses region-specific rules to automatically send traffic that needs the VPN through Sukot. All other traffic goes direct for speed and reliability."
 
 msgid "add_apps_websites_bypass_vpn"
 msgstr "Add apps & websites to bypass the VPN"
@@ -2054,3 +2054,24 @@ msgstr "Tap Edit, then Add Widget."
 
 msgid "widget_step_3"
 msgstr "Search for Sukot, choose a size, and tap add widget."
+
+msgid "add_config"
+msgstr "Add Config"
+
+msgid "add_config_hint"
+msgstr "Paste a config link (vmess, vless, trojan, ss, hysteria2 and more) or scan a QR code. Put each extra link on its own line."
+
+msgid "config_links"
+msgstr "Config links"
+
+msgid "config_links_hint"
+msgstr "vmess://… or vless://…"
+
+msgid "add_config_button"
+msgstr "Add"
+
+msgid "config_added_title"
+msgstr "Config added"
+
+msgid "config_added_message"
+msgstr "Your server was added to Sukot. Pick it from the server list and connect."

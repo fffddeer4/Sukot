@@ -1,5 +1,5 @@
 # Translators:
-# Lantern, 2026
+# Sukot, 2026
 # code smite <codesmite@gmail.com>, 2026
 # Al Shahrior Hasan Sagor <shahrior3814@gmail.com>, 2026
 # tx_e2f_bn c3 <tx_e2f_bn_c3@ate2f.com>, 2026
@@ -290,7 +290,7 @@ msgstr "৩০ দিন প্রো বিনামূল্যে পান"
 msgid "share_message_referral_code"
 msgstr ""
 "Sukot Pro এর এক মাস বিনামূল্যে পেতে এই রেফারেল কোড ব্যবহার করুন: %s ; আপনি"
-" এটি এখান থেকে ডাউনলোড করতে পারেন: https://lantern.io/download"
+" এটি এখান থেকে ডাউনলোড করতে পারেন: https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "সমস্যা রিপোর্ট জমা দিন"
@@ -1460,7 +1460,7 @@ msgid "go_to_server_locations"
 msgstr "সার্ভার লোকেশনে যান"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "বিকল্প ডাউনলোড লিংক"

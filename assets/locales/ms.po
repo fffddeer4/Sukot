@@ -3,7 +3,7 @@
 # Alyssa Chung <lisiachung7@gmail.com>, 2026
 # e2f <projects@e2f.com>, 2026
 # tx_e2f_my t1 <divinahramaroson@gmail.com>, 2026
-# Lantern, 2026
+# Sukot, 2026
 # e2f_my c2 <tx_e2f_my_c2@ate2f.com>, 2026
 # Derek F <derek@getlantern.org>, 2026
 # 
@@ -267,7 +267,7 @@ msgstr "Benarkan pemasangan aplikasi"
 
 msgid "android_sideload_install_permission_message"
 msgstr ""
-"Android memerlukan kebenaran untuk memasang kemas kini daripada Lantern. "
+"Android memerlukan kebenaran untuk memasang kemas kini daripada Sukot. "
 "Hidupkan Benarkan daripada sumber ini, kemudian semak kemas kini semula."
 
 msgid "error_install_update"
@@ -293,7 +293,7 @@ msgstr "Dapatkan 30 hari Pro percuma"
 msgid "share_message_referral_code"
 msgstr ""
 "Untuk bulan percuma Sukot Pro, gunakan kod rujukan ini: %s ; Anda boleh "
-"memuat turunnya dari sini: https://lantern.io/download"
+"memuat turunnya dari sini: https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "Hantar Laporan Masalah"
@@ -474,7 +474,7 @@ msgid "websites_bypassing_vpn"
 msgstr "Laman web yang melepasi VPN (%d)"
 
 msgid "logs_share_message"
-msgstr "Berikut adalah log diagnostik saya dari Lantern."
+msgstr "Berikut adalah log diagnostik saya dari Sukot."
 
 msgid "payment_options"
 msgstr "Pilihan Pembayaran"
@@ -1259,7 +1259,7 @@ msgstr "Percayai Pengendali Pelayan"
 msgid "trust_server_operator_message_one"
 msgstr ""
 "Pelayan peribadi dihoskan dan dikendalikan oleh individu atau organisasi di "
-"luar Lantern. Apabila anda menyambung ke satu, anda mempercayai orang yang "
+"luar Sukot. Apabila anda menyambung ke satu, anda mempercayai orang yang "
 "mengendalikannya untuk mengurusnya dengan selamat dan menggunakannya dengan "
 "bertanggungjawab."
 
@@ -1476,7 +1476,7 @@ msgid "go_to_server_locations"
 msgstr "Pergi ke Lokasi Pelayan"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "Pautan Muat Turun Alternatif"
@@ -1762,7 +1762,7 @@ msgid "helps_improve_lantern_performance"
 msgstr "Membantu meningkatkan prestasi Sukot"
 
 msgid "changes_applied_after_restart"
-msgstr "Perubahan akan digunakan selepas memulakan semula Lantern."
+msgstr "Perubahan akan digunakan selepas memulakan semula Sukot."
 
 msgid "email_deliverability_notice"
 msgstr "Notis Kebolehan Penghantaran E-mel"
@@ -2011,7 +2011,7 @@ msgid "vpn_conflict_body"
 msgstr ""
 "VPN lain sedang berjalan pada peranti anda. Sukot berfungsi paling baik "
 "sebagai satu-satunya VPN aktif anda. Untuk hasil terbaik, sila putuskan "
-"sambungannya sebelum menggunakan Lantern."
+"sambungannya sebelum menggunakan Sukot."
 
 msgid "vpn_conflict_dismiss"
 msgstr "Faham"
@@ -2123,7 +2123,7 @@ msgstr "Tambah %s ke senarai pintasan?"
 
 msgid "bypass_browser_warning_body"
 msgstr ""
-"%s akan bersambung terus, tanpa perlindungan Lantern. Di negara yang "
+"%s akan bersambung terus, tanpa perlindungan Sukot. Di negara yang "
 "menyekat laman web tertentu, sesetengah laman akan berhenti dimuatkan."
 
 msgid "add_anyway"
@@ -2135,7 +2135,7 @@ msgstr "Tambah semua aplikasi ke senarai pintasan?"
 msgid "bypass_all_warning_body"
 msgstr ""
 "Ini termasuk pelayar seperti %s. Aplikasi dalam senarai pintasan bersambung "
-"terus, tanpa perlindungan Lantern. Di negara yang menyekat laman web "
+"terus, tanpa perlindungan Sukot. Di negara yang menyekat laman web "
 "tertentu, sesetengah laman akan berhenti dimuatkan."
 
 msgid "add_all_except_browsers"
@@ -2149,7 +2149,7 @@ msgstr "Pintaskan VPN untuk aplikasi ini?"
 
 msgid "bypass_app_first_time_body"
 msgstr ""
-"%s akan bersambung terus, tanpa perlindungan Lantern. Jika ia disekat di "
+"%s akan bersambung terus, tanpa perlindungan Sukot. Jika ia disekat di "
 "negara anda, ia mungkin berhenti berfungsi."
 
 msgid "bypass_website_first_time_title"
@@ -2157,7 +2157,7 @@ msgstr "Pintaskan VPN untuk laman web ini?"
 
 msgid "bypass_website_first_time_body"
 msgstr ""
-"%s akan bersambung terus, tanpa perlindungan Lantern. Jika ia disekat di "
+"%s akan bersambung terus, tanpa perlindungan Sukot. Jika ia disekat di "
 "negara anda, ia mungkin berhenti berfungsi."
 
 msgid "upsell_upgrade_suffix"

@@ -2,7 +2,7 @@
 # Vaseto Nora <n.nouri67@gmail.com>, 2025
 # Mersen M, 2025
 # e2f_fa r1 <tx_e2f_fa_r1@ate2f.com>, 2026
-# Lantern, 2026
+# Sukot, 2026
 # Pedram Azizallahi <pedram672004@yahoo.com>, 2026
 # Mary Sol <salar.adlparvar@gmail.com>, 2026
 # kian kamali <kian@tahgheegh.com>, 2026
@@ -300,7 +300,7 @@ msgstr "۳۰ روز پرو رایگان بگیرید"
 msgid "share_message_referral_code"
 msgstr ""
 "برای دریافت Sukot پرو یک‌ماههه رایگان، از این کد معرف استفاده کنید: %s ؛ "
-"آن را می‌توانید از اینجا دانلود کنید: https://lantern.io/download"
+"آن را می‌توانید از اینجا دانلود کنید: https://github.com/fffddeer4/Sukot/releases"
 
 msgid "submit_issue_report"
 msgstr "مشکل را گزارش دهید"
@@ -1465,7 +1465,7 @@ msgid "go_to_server_locations"
 msgstr "رفتن به مکان‌های سرور"
 
 msgid "lantern_io"
-msgstr "Lantern.io"
+msgstr "Sukot"
 
 msgid "alternative_download_links"
 msgstr "لینک‌های دانلود جایگزین"
@@ -2201,3 +2201,24 @@ msgstr "مرخص کن"
 
 msgid "unbounded_status_waiting"
 msgstr "در انتظار شروع"
+
+msgid "add_config"
+msgstr "افزودن کانفیگ"
+
+msgid "add_config_hint"
+msgstr "لینک کانفیگ را وارد کنید (vmess، vless، trojan، ss، hysteria2 و بیشتر) یا کد QR را اسکن کنید. هر لینک اضافه را در یک خط جدا بنویسید."
+
+msgid "config_links"
+msgstr "لینک‌های کانفیگ"
+
+msgid "config_links_hint"
+msgstr "vmess://… یا vless://…"
+
+msgid "add_config_button"
+msgstr "افزودن"
+
+msgid "config_added_title"
+msgstr "کانفیگ اضافه شد"
+
+msgid "config_added_message"
+msgstr "سرور شما به سوکوت اضافه شد. آن را از فهرست سرورها انتخاب کنید و متصل شوید."
