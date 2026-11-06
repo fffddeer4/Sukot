@@ -95,9 +95,6 @@ class Home extends HookConsumerWidget {
       return () => tabController.removeListener(sync);
     }, [tabController]);
     final isUserPro = ref.watch(isUserProProvider);
-    final userLoggedIn = ref.watch(
-      appSettingProvider.select((s) => s.userLoggedIn),
-    );
     final unboundedHidden = ref.watch(
       appSettingProvider.select((s) => s.unboundedHidden),
     );
@@ -246,7 +243,7 @@ class Home extends HookConsumerWidget {
                 'unbounded'.i18n,
                 style: Theme.of(context).textTheme.titleLarge,
               )
-            : LanternLogo(isPro: isUserPro, color: context.textPrimary),
+            : LanternLogo(isPro: isUserPro, color: AppColors.blue6),
         // bg/elevated (white in light mode) per the Figma spec — the Home
         // shell's app bar + tab strip render on a white surface, distinct
         // from every other screen's app bar which uses the app-wide
@@ -274,11 +271,6 @@ class Home extends HookConsumerWidget {
                   userLoggedIn: userSignedIn,
                 );
               },
-            )
-          else if (!userLoggedIn)
-            AppTextButton(
-              label: 'sign_in'.i18n,
-              onPressed: () => appRouter.push(const SignInEmail()),
             ),
         ],
         // Tab strip collapses when Unbounded is unavailable — either the

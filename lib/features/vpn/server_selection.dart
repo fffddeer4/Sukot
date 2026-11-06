@@ -10,6 +10,7 @@ import 'package:lantern/core/models/lantern_status.dart';
 import 'package:lantern/core/models/server_location.dart';
 import 'package:lantern/core/widgets/app_text.dart';
 import 'package:lantern/core/widgets/expansion_chevron.dart';
+import 'package:lantern/core/widgets/ping_chip.dart';
 import 'package:lantern/core/widgets/spinner.dart';
 import 'package:lantern/features/macos_extension/provider/macos_extension_notifier.dart';
 import 'package:lantern/features/vpn/provider/available_servers_notifier.dart';
@@ -321,7 +322,8 @@ class ServerLocationListView extends StatefulHookConsumerWidget {
 }
 
 class _ServerLocationListViewState
-    extends ConsumerState<ServerLocationListView> {
+    extends ConsumerState<ServerLocationListView>
+    with ServerConnectFlow<ServerLocationListView> {
   @override
   Widget build(BuildContext context) {
     final availableServers = ref.watch(availableServersProvider);
@@ -335,10 +337,6 @@ class _ServerLocationListViewState
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (!widget.userPro) ...[
-            ProBanner(topMargin: 0),
-            const SizedBox(height: verticalSpacing),
-          ],
           Flexible(
             child: availableServers.when(
               data: (data) {
@@ -352,28 +350,16 @@ class _ServerLocationListViewState
                   _sectionCard(_locationTiles(allLocations, selectedTag)),
                 ];
 
-                return Stack(
-                  children: [
-                    ScrollConfiguration(
-                      behavior: ScrollConfiguration.of(
-                        context,
-                      ).copyWith(scrollbars: false),
-                      child: ListView(
-                        padding: EdgeInsets.zero,
-                        children: sections,
-                      ),
-                    ),
-                    if (!ref.watch(canSelectServerProvider))
-                      Positioned.fill(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: context.bgElevated.withValues(alpha: 0.72),
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          alignment: Alignment.center,
-                        ),
-                      ),
-                  ],
+                // Server picking is free for everyone in Sukot — no gating
+                // overlay is drawn over the list anymore.
+                return ScrollConfiguration(
+                  behavior: ScrollConfiguration.of(
+                    context,
+                  ).copyWith(scrollbars: false),
+                  child: ListView(
+                    padding: EdgeInsets.zero,
+                    children: sections,
+                  ),
                 );
               },
               loading: () => const Center(child: Spinner()),
@@ -446,6 +432,14 @@ class _ServerLocationListViewState
     return children;
   }
 
+}
+
+/// Shared "pick a server and connect" flow used by the full ServerSelection
+/// screen and by the inline server list embedded on the home screen
+/// ([ServerLocationsInlineList]). Keeping it in one place guarantees both
+/// entry points behave identically: macOS extension gate, connect call,
+/// VPN-conflict dialog, location bookkeeping.
+mixin ServerConnectFlow<T extends ConsumerStatefulWidget> on ConsumerState<T> {
   Future<void> onServerSelected(Server selectedServer) async {
     if (PlatformUtils.isMacOS) {
       /// Check for if extension permission is granted before connecting to server, if not show the permission dialog first
@@ -596,6 +590,12 @@ class _CountryCityListViewState extends State<_CountryCityListView> {
               tileTextStyle: Theme.of(
                 context,
               ).textTheme.bodyMedium!.copyWith(color: context.textPrimary),
+              trailing: pingChipFor(
+                context: context,
+                lastSuccessDelayMs: server.selectionHistory?.lastSuccessDelayMs,
+                isProbedUnreachable: server.isProbedUnreachable,
+                isAwaitingProbe: server.isAwaitingProbe,
+              ),
               onPressed: () => _onLocationSelected(context, server),
             );
           }).toList(),
@@ -606,13 +606,40 @@ class _CountryCityListViewState extends State<_CountryCityListView> {
     return AppTile(
       icon: Flag(countryCode: countryCode),
       label: widget.country,
-      trailing: AppImage(
-        path: AppImagePaths.arrowForward,
-        height: 20.0,
-        color: context.textPrimary,
+      // Fastest known ping among the country's cities, then the chevron.
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _countryPingChip(context) ?? const SizedBox.shrink(),
+          const SizedBox(width: 8),
+          AppImage(
+            path: AppImagePaths.arrowForward,
+            height: 20.0,
+            color: context.textPrimary,
+          ),
+        ],
       ),
       onPressed: () => _showCountryBottomSheet(context),
     );
+  }
+
+  /// Lowest successful probe delay across the country's locations.
+  PingChip? _countryPingChip(BuildContext context) {
+    int? best;
+    var anyUnreachable = widget.locations.isNotEmpty;
+    for (final server in widget.locations) {
+      final delay = server.selectionHistory?.lastSuccessDelayMs ?? 0;
+      if (delay > 0 && (best == null || delay < best)) {
+        best = delay;
+      }
+      if (!server.isProbedUnreachable) {
+        anyUnreachable = false;
+      }
+    }
+    if (best != null) {
+      return PingChip(delayMs: best);
+    }
+    return anyUnreachable ? PingChip(delayMs: null, unreachable: true) : null;
   }
 
   void _onLocationSelected(BuildContext context, Server server) {
@@ -843,4 +870,91 @@ Map<String, List<Server>> _groupLocationsByCountry(List<Server> servers) {
     result.putIfAbsent(server.location.country, () => <Server>[]).add(server);
   }
   return result;
+}
+
+/// Compact, non-scrollable rendering of every available Lantern server,
+/// grouped by country exactly like [ServerLocationListView] — but laid out
+/// in a plain [Column] so it can be embedded inside the home screen's own
+/// scroll view. Country rows keep their flags, city rows keep their type
+/// subtitles, every row keeps its real probe ping chip, and tapping a
+/// server runs the exact same connect flow as the full ServerSelection
+/// screen (shared via [ServerConnectFlow]).
+class ServerLocationsInlineList extends ConsumerStatefulWidget {
+  const ServerLocationsInlineList({super.key});
+
+  @override
+  ConsumerState<ServerLocationsInlineList> createState() =>
+      _ServerLocationsInlineListState();
+}
+
+class _ServerLocationsInlineListState
+    extends ConsumerState<ServerLocationsInlineList>
+    with ServerConnectFlow<ServerLocationsInlineList> {
+  @override
+  Widget build(BuildContext context) {
+    final availableServers = ref.watch(availableServersProvider);
+    final selectedTag = ref.watch(serverLocationProvider).serverName;
+
+    return availableServers.when(
+      data: (data) {
+        final allLocations = data.lanternServerLocations;
+        if (allLocations.isEmpty) {
+          return const SizedBox.shrink();
+        }
+
+        final grouped = _groupLocationsByCountry(allLocations);
+        final countryEntries = grouped.entries.toList()
+          ..sort((a, b) => a.key.compareTo(b.key));
+
+        final tiles = countryEntries.map((entry) {
+          final countryLocations = entry.value;
+
+          if (countryLocations.length == 1) {
+            final serverData = countryLocations.first;
+            return SingleCityServerView(
+              key: ValueKey(serverData.tag),
+              onServerSelected: onServerSelected,
+              server: serverData,
+              isSelected: selectedTag == serverData.tag,
+            );
+          }
+
+          return _CountryCityListView(
+            country: entry.key,
+            locations: countryLocations,
+            selectedServerTag: selectedTag,
+            onServerSelected: onServerSelected,
+          );
+        }).toList();
+
+        final children = <Widget>[];
+        for (var i = 0; i < tiles.length; i++) {
+          children.add(tiles[i]);
+          if (i < tiles.length - 1) {
+            children.add(const DividerSpace());
+          }
+        }
+
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: children,
+        );
+      },
+      loading: () => const Padding(
+        padding: EdgeInsets.symmetric(vertical: 24),
+        child: Center(child: Spinner()),
+      ),
+      error: (error, _) => Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+        child: Text(
+          error.localizedDescription,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                color: context.textTertiary,
+              ),
+        ),
+      ),
+    );
+  }
 }

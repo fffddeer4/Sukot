@@ -9,25 +9,25 @@ class AppColors {
 
   static const Color whiteBlur = Color(0xCCF8FAFB);
 
-  static const Color blue1 = Color(0xFFF0FDFF);
+  static const Color blue1 = Color(0xFFF0F6FF);
 
-  static const Color blue2 = Color(0xFFD6F6FA);
+  static const Color blue2 = Color(0xFFD9E9FF);
 
-  static const Color blue3 = Color(0xFF6AD8E7);
+  static const Color blue3 = Color(0xFF66A9FF);
 
-  static const Color blue4 = Color(0xFF00BDD6);
+  static const Color blue4 = Color(0xFF3391FF);
 
-  static const Color blue5 = Color(0xFF009EB2);
+  static const Color blue5 = Color(0xFF006FF0);
 
-  static const Color blue6 = Color(0xFF008394);
+  static const Color blue6 = Color(0xFF0078F8);
 
-  static const Color blue7 = Color(0xFF005F61);
+  static const Color blue7 = Color(0xFF0062D6);
 
-  static const Color blue8 = Color(0xFF004D57);
+  static const Color blue8 = Color(0xFF0055C4);
 
-  static const Color blue9 = Color(0xFF00353D);
+  static const Color blue9 = Color(0xFF003C8C);
 
-  static const Color blue10 = Color(0xFF012D2D);
+  static const Color blue10 = Color(0xFF0050D8);
 
   static const Color gray0 = Color(0xFFFFFFFF);
 

@@ -129,7 +129,7 @@ msgid "show_download_links"
 msgstr "نمایش لینک‌های دانلود"
 
 msgid "get_lantern"
-msgstr "دریافت لنترن"
+msgstr "دریافت Sukot"
 
 msgid "send_friend_download_link"
 msgstr "این لینک دانلود را برای دوست خود بفرستید:"
@@ -627,7 +627,7 @@ msgid "welcome_to_lantern_pro"
 msgstr "به Sukot پرو خوش آمدید!"
 
 msgid "welcome_to_lantern"
-msgstr "به لنترن خوش آمدید!"
+msgstr "به Sukot خوش آمدید!"
 
 msgid "lantern_pro_description"
 msgstr ""
@@ -1628,7 +1628,7 @@ msgstr ""
 "هنوز کاربر Sukot Pro نیستید؟ وقتی اولین معرف شما اشتراک بگیرد، شده‌اید."
 
 msgid "lantern_pro_license"
-msgstr "لایسنس لنترن پرو"
+msgstr "لایسنس Sukot پرو"
 
 msgid "lantern_pro_license_required"
 msgstr "لایسنس Sukot Pro مورد نیاز است"

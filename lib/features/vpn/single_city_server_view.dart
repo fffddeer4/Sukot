@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lantern/core/models/available_servers.dart';
+import 'package:lantern/core/widgets/ping_chip.dart';
 import 'package:lantern/features/vpn/server_selection_callbacks.dart';
 
 import '../../core/common/common.dart';
@@ -28,24 +29,32 @@ class _SingleCityServerViewState extends State<SingleCityServerView> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final server = widget.server;
     return AppTile(
       label: widget.nested
-          ? widget.server.location.city
-          : '${widget.server.location.country} - ${widget.server.location.city}',
+          ? server.location.city
+          : '${server.location.country} - ${server.location.city}',
       selected: widget.isSelected,
-      subtitle: widget.server.type.isEmpty
+      subtitle: server.type.isEmpty
           ? null
           : Text(
-              widget.server.type.capitalize,
+              server.type.capitalize,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: textTheme.labelMedium!.copyWith(
                 color: context.textTertiary,
               ),
             ),
-      icon: Flag(countryCode: widget.server.location.countryCode),
+      icon: Flag(countryCode: server.location.countryCode),
+      // Real probe latency for this server, straight from the core.
+      trailing: pingChipFor(
+        context: context,
+        lastSuccessDelayMs: server.selectionHistory?.lastSuccessDelayMs,
+        isProbedUnreachable: server.isProbedUnreachable,
+        isAwaitingProbe: server.isAwaitingProbe,
+      ),
       onPressed: () {
-        widget.onServerSelected(widget.server);
+        widget.onServerSelected(server);
       },
     );
   }

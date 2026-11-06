@@ -139,11 +139,9 @@ void main() {
         await tester.pump(const Duration(milliseconds: 500));
 
         expect(tester.takeException(), isNull);
-        expect(find.byType(ProBanner), findsOneWidget);
-        final bannerAction = find.text(
-          (isPro ? 'renew_pro' : 'upgrade_to_pro').i18n,
-        );
-        expect(bannerAction.hitTestable(), findsOneWidget);
+
+        // Sukot: everything is free — the Pro banner is gone from the tab.
+        expect(find.byType(ProBanner), findsNothing);
 
         // Linux omits the split-tunneling row, so content may fit at the
         // smoke-test size. The shorter viewport must scroll on every platform.

@@ -14,6 +14,8 @@ class AppUrls {
   static String downloadLinux = '$lanternOfficial/download?os=linux';
   static String lanternGithub = 'https://github.com/getlantern/lantern';
   static String telegramBot = 'https://t.me/lantern_official_bot';
+  // Official Sukot community channel.
+  static String telegramChannel = 'https://t.me/SUKOT1344';
   static String unbounded = 'https://unbounded.lantern.io';
   // Direct installer links published by the release workflow
   // (scripts/ci/publish-to-s3.sh uploads to releases/{build_type}/latest/).

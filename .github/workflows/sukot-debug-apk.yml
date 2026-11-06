@@ -1,10 +1,12 @@
 name: Sukot APK Build
 
-# Builds an installable debug APK of the rebranded Sukot app and uploads it as
-# an artifact (sukot-installer.apk). Mirrors android-compile-check.yml exactly
-# (proven to build with zero secrets) but uploads the APK instead of only
-# compiling it. This workflow is additive — it does not modify any existing
-# workflow or build configuration.
+# Builds two installable debug APKs of the rebranded Sukot app and publishes
+# both to GitHub Releases:
+#   - Sukot-Samsung.apk  (arm64-v8a, package vpn.sukot.samsung)
+#   - Sukot-Xiaomi.apk   (arm64-v8a + armeabi-v7a for old 32-bit Redmi/Mi,
+#                         package vpn.sukot.xiaomi)
+# Zero secrets needed — uses the runner's debug signing and GITHUB_TOKEN for
+# the release upload.
 
 on:
   workflow_dispatch:
@@ -14,10 +16,28 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-sukot-apk:
+  apk:
+    name: Sukot APK (${{ matrix.variant }})
     permissions:
       contents: "read"
     runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - variant: Samsung
+            identity: scripts/stealth/identity/sukot-samsung.properties
+            target-platforms: android-arm64
+            abi-filters: arm64-v8a
+            gomobile-target: android/arm64
+            aar-cache-suffix: arm64
+          - variant: Xiaomi
+            identity: scripts/stealth/identity/sukot-xiaomi.properties
+            target-platforms: android-arm,android-arm64
+            abi-filters: arm64-v8a,armeabi-v7a
+            # Old 32-bit Redmi/Mi devices need the Go core built for arm too.
+            gomobile-target: android/arm64,android/arm
+            aar-cache-suffix: arm64-arm
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,7 +45,7 @@ jobs:
       - name: Set up Go
         uses: ./.github/actions/setup-go
         with:
-          cache-scope: sukot-apk
+          cache-scope: sukot-apk-${{ matrix.aar-cache-suffix }}
           gomobile-cache: "true"
 
       - name: Set up Android
@@ -43,7 +63,7 @@ jobs:
           path: |
             bin/android/liblantern.aar
             android/app/libs/liblantern.aar
-          key: ${{ runner.os }}-android-aar-${{ hashFiles('go.mod', 'go.sum', 'Makefile', '**/*.go', '.github/actions/setup-android/**', '.github/actions/setup-flutter/**', '.github/actions/setup-go/**') }}
+          key: ${{ runner.os }}-android-aar-${{ matrix.aar-cache-suffix }}-${{ hashFiles('go.mod', 'go.sum', 'Makefile', '**/*.go', '.github/actions/setup-android/**', '.github/actions/setup-flutter/**', '.github/actions/setup-go/**') }}
 
       - name: Mark restored Android AAR fresh
         if: steps.android-aar-cache.outputs.cache-hit == 'true'
@@ -57,6 +77,9 @@ jobs:
         run: make install-android-deps
         env:
           GOMOBILECACHE: ${{ env.GOMOBILECACHE }}
+          # The Xiaomi variant ships armeabi-v7a, so the Go AAR must contain
+          # the arm (32-bit) build of the core too.
+          GOMOBILE_ANDROID_TARGET: ${{ matrix.gomobile-target }}
 
       - name: Flutter pub get + codegen
         run: |
@@ -66,22 +89,119 @@ jobs:
       - name: Create placeholder app.env
         run: touch app.env
 
-      - name: Build debug APK
+      - name: Build debug APK (${{ matrix.variant }})
         run: make android-debug-ci
         env:
           GOMOBILECACHE: ${{ env.GOMOBILECACHE }}
+          ANDROID_IDENTITY_PROFILE: ${{ github.workspace }}/${{ matrix.identity }}
+          ANDROID_APK_TARGET_PLATFORMS: ${{ matrix.target-platforms }}
+          ANDROID_ABI_FILTERS: ${{ matrix.abi-filters }}
 
-      - name: Rename APK to sukot-installer
+      - name: Rename APK
         run: |
           SRC="build/app/outputs/flutter-apk/app-debug.apk"
           test -s "$SRC"
-          cp "$SRC" sukot-installer.apk
-          ls -lh sukot-installer.apk
+          cp "$SRC" "Sukot-${{ matrix.variant }}.apk"
+          ls -lh "Sukot-${{ matrix.variant }}.apk"
 
-      - name: Upload Sukot APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sukot-installer-apk
-          path: sukot-installer.apk
+          name: Sukot-${{ matrix.variant }}-apk
+          path: Sukot-${{ matrix.variant }}.apk
           retention-days: 30
           if-no-files-found: error
+
+  windows:
+    name: Sukot Windows (x64)
+    permissions:
+      contents: "read"
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: ./.github/actions/setup-go
+        with:
+          cache-scope: sukot-windows
+
+      - name: Set up MinGW (CGO for the Go core DLL)
+        shell: bash
+        run: bash ./scripts/ci/setup-windows-toolchain.sh
+
+      - name: Install Flutter
+        uses: ./.github/actions/setup-flutter
+
+      - name: Enable Flutter Desktop Support
+        run: flutter config --enable-windows-desktop
+
+      - name: Create placeholder app.env
+        shell: pwsh
+        run: if (-not (Test-Path 'app.env')) { '' | Set-Content app.env }
+
+      - name: Build Windows release (Go DLL + Flutter app + lanternd)
+        shell: pwsh
+        run: make windows-release
+
+      - name: Zip the Release folder
+        shell: pwsh
+        run: |
+          $dir = 'build/windows/x64/runner/Release'
+          if (-not (Test-Path "$dir/sukot.exe") -and -not (Test-Path "$dir/lantern.exe")) {
+            Get-ChildItem $dir | Select-Object Name | Format-Table
+          }
+          Compress-Archive -Path "$dir/*" -DestinationPath 'Sukot-Windows-x64.zip' -Force
+          Get-Item 'Sukot-Windows-x64.zip' | Select-Object Name, Length
+
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sukot-Windows-zip
+          path: Sukot-Windows-x64.zip
+          retention-days: 30
+          if-no-files-found: error
+
+  release:
+    name: Publish Sukot builds to Releases
+    permissions:
+      contents: "write"
+    runs-on: ubuntu-24.04
+    needs: [apk, windows]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Read app version
+        id: version
+        run: |
+          RAW=$(grep '^version:' pubspec.yaml | awk '{print $2}')
+          NAME="${RAW%%+*}"
+          BUILD="${RAW##*+}"
+          TAG="sukot-v${NAME}-${BUILD}-build${{ github.run_number }}"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=$RAW" >> "$GITHUB_OUTPUT"
+          echo "Tag: $TAG  Version: $RAW"
+
+      - name: Download all build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: apks
+          merge-multiple: true
+
+      - name: List build outputs
+        run: ls -lh apks
+
+      - name: Create release and upload builds
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Sukot VPN ${{ steps.version.outputs.version }} (build ${{ github.run_number }})
+          files: |
+            apks/Sukot-Samsung.apk
+            apks/Sukot-Xiaomi.apk
+            apks/Sukot-Windows-x64.zip
+          fail_on_unmatched_files: true
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

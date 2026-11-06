@@ -8,6 +8,15 @@ import 'package:lantern/features/macos_extension/provider/macos_extension_notifi
 import 'package:lantern/features/vpn/provider/vpn_notifier.dart';
 import 'package:lantern/features/vpn/provider/vpn_status_notifier.dart';
 
+/// Toggles the VPN on/off. Top-level so both the classic toggle switch
+/// and the home screen's big power button drive the exact same
+/// connect/disconnect path (macOS extension gate, conflict dialog,
+/// error snackbars).
+Future<void> handleVPNStateChange(WidgetRef ref, BuildContext context) {
+  final switcher = VPNSwitch();
+  return switcher.onVPNStateChange(ref, context);
+}
+
 class VPNSwitch extends HookConsumerWidget {
   const VPNSwitch({super.key});
 

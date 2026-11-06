@@ -16,6 +16,13 @@ def sideloadSigningCertificateSha256 =
                 ? project.property('SIDELOAD_SIGNING_CERTIFICATE_SHA256').toString().trim()
                 : "108f612ae55354078ec12b10bb705362840d48fa78b9262c11b6d0adeff6f289"
 def sideloadUpdates = project.findProperty("lantern.sideloadUpdates") == "true"
+
+// -Plantern.abiFilters=arm64-v8a,armeabi-v7a lets a build ship extra ABIs
+// (e.g. the Xiaomi variant for old 32-bit devices). Empty by default, which
+// means arm64-only everywhere below.
+def lanternAbiFilters = (project.findProperty("lantern.abiFilters") ?: "")
+        .toString().split(",").collect { it.trim() }.findAll { !it.isEmpty() }
+
 def sideloadManifestPath = "$buildDir/generated/lantern/sideload/AndroidManifest.xml"
 // Play AAB passes false; sideload builds keep cleartext for the Alipay gateway.
 def cleartextTraffic = (project.findProperty("lantern.cleartextTraffic") ?: "true").toString()
@@ -361,15 +368,23 @@ android {
             // libbarhopper_v3.so + 1.2 MB libc++_shared.so + 0.7 MB
             // libnative-imagetranscoder.so under lib/x86_64/ in
             // v9.1.9-beta. Explicit excludes here strip them at packaging
-            // time. armeabi-v7a is stripped too — we ship arm64 only.
+            // time. ABIs not listed in -Plantern.abiFilters are stripped
+            // too, so the packaged .so set always matches what Flutter
+            // built (arm64-only by default).
+            def shippedAbis = lanternAbiFilters ?: ["arm64-v8a"]
             def abiExcludes = [
                 "lib/x86/**",
                 "lib/x86_64/**",
-                "lib/armeabi/**",
-                "lib/armeabi-v7a/**",
                 "lib/mips/**",
                 "lib/mips64/**",
+                "lib/armeabi/**",
             ]
+            if (!shippedAbis.contains("armeabi-v7a")) {
+                abiExcludes << "lib/armeabi-v7a/**"
+            }
+            if (!shippedAbis.contains("arm64-v8a")) {
+                abiExcludes << "lib/arm64-v8a/**"
+            }
             excludes += abiExcludes
         }
     }
@@ -403,9 +418,12 @@ android {
         resValue "string", "app_name", androidIdentity.appLabel
 
         ndk {
-            // arm64 only (APK + AAB) — armeabi-v7a dropped, see the comment
-            // above defaultConfig (golang/go#70495 SIGSYS on 32-bit).
-            abiFilters = ["arm64-v8a"]
+            // Shipped ABIs — arm64-only by default; -Plantern.abiFilters can
+            // add more (e.g. armeabi-v7a for old 32-bit Redmi/Mi devices).
+            // Must match the ABIs Flutter built (Makefile
+            // --target-platform), or installs crash with "Could not find
+            // 'libflutter.so'".
+            abiFilters = (lanternAbiFilters ?: ["arm64-v8a"]) as List
             debugSymbolLevel 'FULL'
         }
 
