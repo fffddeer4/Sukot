@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:lantern/core/common/common.dart';
+import 'package:lantern/core/utils/screen_utils.dart';
 import 'package:lantern/features/setting/follow_us.dart' hide FollowUs;
 import 'package:lantern/features/support/app_version.dart';
 
