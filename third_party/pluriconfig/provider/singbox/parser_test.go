@@ -1,9 +1,9 @@
 package singbox
 
 import (
-	"encoding/json"
 	"context"
 	"encoding/base64"
+	"encoding/json"
 	"net/url"
 	"testing"
 
